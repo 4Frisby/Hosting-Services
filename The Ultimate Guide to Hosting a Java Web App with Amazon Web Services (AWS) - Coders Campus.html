@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US" prefix="og: http://ogp.me/ns#">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US" prefix="og: http://ogp.me/ns#">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US" prefix="og: http://ogp.me/ns#">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8" />
+			
+	
+	<link rel="pingback" href="http://coderscampus.com/xmlrpc.php" />
+
+		<!--[if lt IE 9]>
+	<script src="http://coderscampus.com/wp-content/themes/Divi/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+
+	<script type="text/javascript">
+		document.documentElement.className = 'js';
+	</script>
+
+	<title>The Ultimate Guide to Hosting a Java Web App with Amazon Web Services (AWS) - Coders Campus</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v5.8 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="http://coderscampus.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The Ultimate Guide to Hosting a Java Web App with Amazon Web Services (AWS) - Coders Campus" />
+<meta property="og:description" content="Let&#8217;s start things off by explaining what Amazon Web Services (AWS) actually is and why it&#8217;s useful to you as a Java programmer. Amazon Web Services are a bunch of &hellip;" />
+<meta property="og:url" content="http://coderscampus.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/" />
+<meta property="og:site_name" content="Coders Campus" />
+<meta property="article:section" content="Coders Campus Podcast" />
+<meta property="article:published_time" content="2016-12-23T01:00:36+00:00" />
+<meta property="article:modified_time" content="2017-04-10T19:56:44+00:00" />
+<meta property="og:updated_time" content="2017-04-10T19:56:44+00:00" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-The-Ultimate-Guide.jpg" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-1.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-2.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-3.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-img4.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-6.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-7.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-8.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-9.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-1.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-2.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-4.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-5.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-6.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-7.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-8.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-9.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-10.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-11.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/deploy-1.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/deploy-2.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/deploy-3.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/deploy-4.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-1.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-2.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-3.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-4.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-5.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-6.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-7.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-8.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-9.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-10.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-12.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-13.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-14.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-15.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-16.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-17.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/route53-1.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/route53-0.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/route53-2.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/route53-3.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/route53-4.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/route53-5.png" />
+<meta property="og:image" content="http://coderscampus.com/wp-content/uploads/2016/12/route53-6.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Let&#8217;s start things off by explaining what Amazon Web Services (AWS) actually is and why it&#8217;s useful to you as a Java programmer. Amazon Web Services are a bunch of [&hellip;]" />
+<meta name="twitter:title" content="The Ultimate Guide to Hosting a Java Web App with Amazon Web Services (AWS) - Coders Campus" />
+<meta name="twitter:image" content="http://coderscampus.com/wp-content/uploads/2016/12/AWS-The-Ultimate-Guide.jpg" />
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"http:\/\/coderscampus.com\/","name":"Coders Campus","potentialAction":{"@type":"SearchAction","target":"http:\/\/coderscampus.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"Organization","url":"http:\/\/coderscampus.com\/ultimate-guide-hosting-java-web-app-amazon-web-services-aws\/","sameAs":[],"@id":"#organization","name":"Coders Campus","logo":"http:\/\/coderscampus.com\/wp-content\/uploads\/2016\/02\/coderscampus-logo.png"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//platform-api.sharethis.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Coders Campus &raquo; Feed" href="http://coderscampus.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Coders Campus &raquo; Comments Feed" href="http://coderscampus.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Coders Campus &raquo; The Ultimate Guide to Hosting a Java Web App with Amazon Web Services (AWS) Comments Feed" href="http://coderscampus.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/coderscampus.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.3"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<meta content="Divi Child Theme v." name="generator"/><style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='jquery.prettyphoto-css'  href='http://coderscampus.com/wp-content/plugins/wp-video-lightbox/css/prettyPhoto.css?ver=4.7.3' type='text/css' media='all' />
+<link rel='stylesheet' id='video-lightbox-css'  href='http://coderscampus.com/wp-content/plugins/wp-video-lightbox/wp-video-lightbox.css?ver=4.7.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-image-borders-styles-css'  href='http://coderscampus.com/wp-content/plugins/wp-image-borders/wp-image-borders.css?ver=4.7.3' type='text/css' media='all' />
+<style id='wp-image-borders-styles-inline-css' type='text/css'>
+
+		.wp-image-borders .alignright,
+		.wp-image-borders .alignleft,
+		.wp-image-borders .aligncenter,
+		.wp-image-borders .alignnone,
+		.wp-image-borders .size-auto,
+		.wp-image-borders .size-full,
+		.wp-image-borders .size-large,
+		.wp-image-borders .size-medium,
+		.wp-image-borders .size-thumbnail,
+		.wp-image-borders .alignright img,
+		.wp-image-borders .alignleft img,
+		.wp-image-borders .aligncenter img,
+		.wp-image-borders .alignnone img,
+		.wp-image-borders .size-auto img,
+		.wp-image-borders .size-full img,
+		.wp-image-borders .size-large img,
+		.wp-image-borders .size-medium img,
+		.wp-image-borders .size-thumbnail img {
+	   border-style: outset !important;
+	   border-width: 2px !important;
+	   border-radius: 5px !important;
+	   border-color: #0a0a0a !important;
+	   -moz-box-shadow: 2px 2px 3px 3px #999999 !important;
+	   -webkit-box-shadow: 2px 2px 3px 3px #999999 !important;
+	   box-shadow: 2px 2px 3px 3px #999999 !important;
+   }
+</style>
+<link rel='stylesheet' id='divi-fonts-css'  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='divi-style-css'  href='http://coderscampus.com/wp-content/themes/divi-master/style.css?ver=2.7.8' type='text/css' media='all' />
+<link rel='stylesheet' id='et-shortcodes-css-css'  href='http://coderscampus.com/wp-content/themes/Divi/epanel/shortcodes/css/shortcodes.css?ver=2.7.8' type='text/css' media='all' />
+<link rel='stylesheet' id='et-shortcodes-responsive-css-css'  href='http://coderscampus.com/wp-content/themes/Divi/epanel/shortcodes/css/shortcodes_responsive.css?ver=2.7.8' type='text/css' media='all' />
+<link rel='stylesheet' id='magnific-popup-css'  href='http://coderscampus.com/wp-content/themes/Divi/includes/builder/styles/magnific_popup.css?ver=2.7.8' type='text/css' media='all' />
+<script type='text/javascript' src='http://coderscampus.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://coderscampus.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://coderscampus.com/wp-content/plugins/wp-video-lightbox/js/jquery.prettyPhoto.min.js?ver=3.1.6'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var vlpp_vars = {"prettyPhoto_rel":"wp-video-lightbox","animation_speed":"fast","slideshow":"5000","autoplay_slideshow":"false","opacity":"0.80","show_title":"true","allow_resize":"true","allow_expand":"true","default_width":"640","default_height":"480","counter_separator_label":"\/","theme":"pp_default","horizontal_padding":"20","hideflash":"false","wmode":"opaque","autoplay":"false","modal":"false","deeplinking":"false","overlay_gallery":"true","overlay_gallery_max":"30","keyboard_shortcuts":"true","ie6_fallback":"true"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://coderscampus.com/wp-content/plugins/wp-video-lightbox/js/video-lightbox.js?ver=3.1.6'></script>
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#product=ga'></script>
+<link rel='https://api.w.org/' href='http://coderscampus.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://coderscampus.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://coderscampus.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='shortlink' href='http://coderscampus.com/?p=3975' />
+<link rel="alternate" type="application/json+oembed" href="http://coderscampus.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fcoderscampus.com%2Fultimate-guide-hosting-java-web-app-amazon-web-services-aws%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://coderscampus.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fcoderscampus.com%2Fultimate-guide-hosting-java-web-app-amazon-web-services-aws%2F&#038;format=xml" />
+	<link href="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Styles/SyntaxHighlighter.css" type="text/css" rel="stylesheet" />
+	<style type="text/css">#left-area {
+    width: 69.125%;
+}
+#footer-info {
+    color: #727272 !important;
+}
+#sidebar {
+    float: right;
+    width: 30.875%;
+    z-Index: 1;
+    position: relative;
+}
+
+.et_post_meta_wrapper h1 {
+    font-size: 38px;
+    line-height: 46px;
+    padding:0;
+    font-family: roboto !important;
+}
+
+.et_post_meta_wrapper ul {
+    list-style-type: none !important;
+    padding: 0 !important;
+}
+
+.et_post_meta_wrapper a {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+button.css3button {
+    margin-top:20px !Important;
+    background: #19acca !important;
+    -moz-border-radius: 5px !important;
+    -webkit-border-radius: 5px !important;
+    border-radius: 5px !important;
+    border: 0 !important;
+    font-family: Roboto,sans-serif;
+    font-size: 18px !important;
+    line-height: 20px !important;
+    font-weight: 600 !important;
+    color: #fff;
+    padding: 0 0 16px 0 !important;
+    width: 100%;
+    white-space: normal;
+    cursor: pointer;
+    text-transform: uppercase !important;
+    border-bottom: 3px solid #11839A !important;
+}
+
+button.css3button:hover {
+    background:#129BB7 !important;
+}
+
+.widget_search input#s, .widget_search input#searchsubmit {
+    height: 40px !important;
+    margin: 0;
+    padding: 0.7em;
+    border: 1px solid #2EB5ED;
+    color: #fff;
+    font-size: 14px;
+    line-height: normal !important;
+}
+
+.widget_search #searchsubmit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70px;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: #2EB5ED;
+    cursor: pointer;
+}
+
+h4.widgettitle {
+    font-size: 22px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #1DAFEC;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: #1DAFEC;
+}
+
+.et_right_sidebar #main-content .container:before {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #F5F5F5;
+    content: "";
+    width: 33.875% !important;
+    display: block;
+    right: -30px !important;
+}
+
+#left-area .post-meta a {
+    color: #2EB5ED;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+h1 {
+font-family: roboto !important;
+padding-bottom: 10px;
+color: #333;
+font-weight: 300 !important;
+line-height: 40px !important;
+font-size: 30px !important;
+}
+
+#logo {
+width: 250px;
+}
+
+@media only screen and (max-width:680px) {
+#main-content .container {
+    margin-top:0 !important;
+}
+.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h1 {
+    font-size: 32px !important;
+    padding: 0 0px 20px 0;
+}
+.et_pb_fullwidth_code_0 {
+    width: 100% !important;
+    margin: -154px 0px 113px !important;
+    box-sizing: border-box !important;
+    padding: 0 15px;
+}
+li.cat-item, li.cat-item a {
+    width: 100% !important;
+}
+li.categories {
+    float:left;
+}
+.et_pb_post h2 {
+    font-size:28px !important;
+    line-height:39px !Important;
+}
+.author-left, .author-right, .relatedposts ul li { width:100% !important; text-align:center;}
+.author-left img { margin:10px auto !important;display:block; }
+.et_pb_fullwidth_header_subhead {
+    display: block;
+    width: 100%;
+    padding: 0 0 20px 0 !important;
+}
+.et_pb_image_0, .et_pb_image_1 {
+    width:100% !important;
+    max-width:100%  !important;
+    left:0  !important;
+    top:0  !important;
+}
+.entry-content ul {
+    padding-left:0 !important;
+}
+.et_pb_column .et_pb_blog_grid .column.size-1of1 .et_pb_post {
+   margin-bottom:30% !important;
+}
+.et_pb_fullwidth_header_0 .header-content h1 {
+   width:100% !important;
+}
+}</style><link rel="alternate" type="application/rss+xml" title="Default Podcast Feed" href="http://coderscampus.com/feed/podcast/" />
+<script data-cfasync="false" src="//load.sumome.com/" data-sumo-platform="wordpress" data-sumo-site-id="65394b009519f000c89eea002cdc7300de706c00308d9800457dbe0034581200" async></script><script>
+            WP_VIDEO_LIGHTBOX_VERSION="1.8.5";
+            WP_VID_LIGHTBOX_URL="http://coderscampus.com/wp-content/plugins/wp-video-lightbox";
+                        function wpvl_paramReplace(name, string, value) {
+                // Find the param with regex
+                // Grab the first character in the returned string (should be ? or &)
+                // Replace our href string with our new value, passing on the name and delimeter
+
+                var re = new RegExp("[\?&]" + name + "=([^&#]*)");
+                var matches = re.exec(string);
+                var newString;
+
+                if (matches === null) {
+                    // if there are no params, append the parameter
+                    newString = string + '?' + name + '=' + value;
+                } else {
+                    var delimeter = matches[0].charAt(0);
+                    newString = string.replace(re, delimeter + name + "=" + value);
+                }
+                return newString;
+            }
+            </script><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />		<style id="theme-customizer-css">
+													.woocommerce #respond input#submit, .woocommerce-page #respond input#submit, .woocommerce #content input.button, .woocommerce-page #content input.button, .woocommerce-message, .woocommerce-error, .woocommerce-info { background: #1dafec !important; }
+			#et_search_icon:hover, .mobile_menu_bar:before, .mobile_menu_bar:after, .et_toggle_slide_menu:after, .et-social-icon a:hover, .et_pb_sum, .et_pb_pricing li a, .et_pb_pricing_table_button, .et_overlay:before, .entry-summary p.price ins, .woocommerce div.product span.price, .woocommerce-page div.product span.price, .woocommerce #content div.product span.price, .woocommerce-page #content div.product span.price, .woocommerce div.product p.price, .woocommerce-page div.product p.price, .woocommerce #content div.product p.price, .woocommerce-page #content div.product p.price, .et_pb_member_social_links a:hover, .woocommerce .star-rating span:before, .woocommerce-page .star-rating span:before, .et_pb_widget li a:hover, .et_pb_filterable_portfolio .et_pb_portfolio_filters li a.active, .et_pb_filterable_portfolio .et_pb_portofolio_pagination ul li a.active, .et_pb_gallery .et_pb_gallery_pagination ul li a.active, .wp-pagenavi span.current, .wp-pagenavi a:hover, .nav-single a, .posted_in a { color: #1dafec; }
+			.et_pb_contact_submit, .et_password_protected_form .et_submit_button, .et_pb_bg_layout_light .et_pb_newsletter_button, .comment-reply-link, .form-submit input, .et_pb_bg_layout_light .et_pb_promo_button, .et_pb_bg_layout_light .et_pb_more_button, .woocommerce a.button.alt, .woocommerce-page a.button.alt, .woocommerce button.button.alt, .woocommerce-page button.button.alt, .woocommerce input.button.alt, .woocommerce-page input.button.alt, .woocommerce #respond input#submit.alt, .woocommerce-page #respond input#submit.alt, .woocommerce #content input.button.alt, .woocommerce-page #content input.button.alt, .woocommerce a.button, .woocommerce-page a.button, .woocommerce button.button, .woocommerce-page button.button, .woocommerce input.button, .woocommerce-page input.button { color: #1dafec; }
+			.footer-widget h4 { color: #1dafec; }
+			.et-search-form, .nav li ul, .et_mobile_menu, .footer-widget li:before, .et_pb_pricing li:before, blockquote { border-color: #1dafec; }
+			.et_pb_counter_amount, .et_pb_featured_table .et_pb_pricing_heading, .et_quote_content, .et_link_content, .et_audio_content, .et_pb_post_slider.et_pb_bg_layout_dark, .et_slide_in_menu_container { background-color: #1dafec; }
+									a { color: #1dafec; }
+													#top-header, #et-secondary-nav li ul { background-color: #1dafec; }
+													.et_header_style_centered .mobile_nav .select_page, .et_header_style_split .mobile_nav .select_page, .et_nav_text_color_light #top-menu > li > a, .et_nav_text_color_dark #top-menu > li > a, #top-menu a, .et_mobile_menu li a, .et_nav_text_color_light .et_mobile_menu li a, .et_nav_text_color_dark .et_mobile_menu li a, #et_search_icon:before, .et_search_form_container input, span.et_close_search_field:after, #et-top-navigation .et-cart-info { color: #58585b; }
+			.et_search_form_container input::-moz-placeholder { color: #58585b; }
+			.et_search_form_container input::-webkit-input-placeholder { color: #58585b; }
+			.et_search_form_container input:-ms-input-placeholder { color: #58585b; }
+								
+		
+					#top-menu li.current-menu-ancestor > a, #top-menu li.current-menu-item > a,
+			.et_color_scheme_red #top-menu li.current-menu-ancestor > a, .et_color_scheme_red #top-menu li.current-menu-item > a,
+			.et_color_scheme_pink #top-menu li.current-menu-ancestor > a, .et_color_scheme_pink #top-menu li.current-menu-item > a,
+			.et_color_scheme_orange #top-menu li.current-menu-ancestor > a, .et_color_scheme_orange #top-menu li.current-menu-item > a,
+			.et_color_scheme_green #top-menu li.current-menu-ancestor > a, .et_color_scheme_green #top-menu li.current-menu-item > a { color: #1dafec; }
+													#main-footer .footer-widget h4 { color: #1dafec; }
+							.footer-widget li:before { border-color: #1dafec; }
+						#footer-bottom { background-color: #000000; }#footer-info, #footer-info a { color: #1dafed; }#footer-bottom .et-social-icon a { color: #1dafed; }										
+		
+																														
+		@media only screen and ( min-width: 981px ) {
+																																											.et-fixed-header#top-header, .et-fixed-header#top-header #et-secondary-nav li ul { background-color: #1dafec; }
+																.et-fixed-header #top-menu a, .et-fixed-header #et_search_icon:before, .et-fixed-header #et_top_search .et-search-form input, .et-fixed-header .et_search_form_container input, .et-fixed-header .et_close_search_field:after, .et-fixed-header #et-top-navigation .et-cart-info { color: #58585b !important; }
+				.et-fixed-header .et_search_form_container input::-moz-placeholder { color: #58585b !important; }
+				.et-fixed-header .et_search_form_container input::-webkit-input-placeholder { color: #58585b !important; }
+				.et-fixed-header .et_search_form_container input:-ms-input-placeholder { color: #58585b !important; }
+										.et-fixed-header #top-menu li.current-menu-ancestor > a,
+				.et-fixed-header #top-menu li.current-menu-item > a { color: #1dafec !important; }
+						
+					}
+		@media only screen and ( min-width: 1350px) {
+			.et_pb_row { padding: 27px 0; }
+			.et_pb_section { padding: 54px 0; }
+			.single.et_pb_pagebuilder_layout.et_full_width_page .et_post_meta_wrapper { padding-top: 81px; }
+			.et_pb_section.et_pb_section_first { padding-top: inherit; }
+			.et_pb_fullwidth_section { padding: 0; }
+		}
+		@media only screen and ( max-width: 980px ) {
+																				}
+		@media only screen and ( max-width: 767px ) {
+														}
+	</style>
+
+	
+	
+	<style id="module-customizer-css">
+			</style>
+
+	<link rel="shortcut icon" href="http://coderscampus.com/wp-content/uploads/2016/02/favicon.png" />		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '737386116300151'); // Insert your pixel ID here.
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=737386116300151&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+</head>
+<body class="post-template-default single single-post postid-3975 single-format-standard et_pb_button_helper_class et_non_fixed_nav et_show_nav et_cover_background et_pb_gutter linux et_pb_gutters3 et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_pb_footer_columns4 et_header_style_left et_right_sidebar chrome">
+	<div id="page-container">
+
+	
+	
+		<header id="main-header" data-height-onload="66">
+			<div class="container clearfix et_menu_container">
+							<div class="logo_container">
+					<span class="logo_helper"></span>
+					<a href="http://coderscampus.com/">
+						<img src="http://coderscampus.com/wp-content/uploads/2016/02/CodersCampusLogo-DarkBackgrounds-250px.png" alt="Coders Campus" id="logo" data-height-percentage="54" />
+					</a>
+				</div>
+				<div id="et-top-navigation" data-height="66" data-fixed-height="40">
+											<nav id="top-menu-nav">
+						<ul id="top-menu" class="nav"><li id="menu-item-3171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3171"><a href="http://coderscampus.com/">HOME</a></li>
+<li id="menu-item-3170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3170"><a href="http://coderscampus.com/trevor-page/">TREVOR PAGE</a></li>
+<li id="menu-item-3168" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3168"><a href="http://coderscampus.com/podcast-2/">PODCAST</a></li>
+<li id="menu-item-4056" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4056"><a href="https://coderscampus.proffesso.com">PRODUCTS</a></li>
+<li id="menu-item-3169" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3169"><a href="http://coderscampus.com/reviews/">REVIEWS</a></li>
+<li id="menu-item-3216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3216"><a href="http://coderscampus.com/blog/">BLOG</a></li>
+<li id="menu-item-4263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4263"><a href="https://proffesso.com/login">LOGIN</a></li>
+</ul>						</nav>
+					
+					
+					
+					
+					<div id="et_mobile_nav_menu">
+				<div class="mobile_nav closed">
+					<span class="select_page">Select Page</span>
+					<span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
+				</div>
+			</div>				</div> <!-- #et-top-navigation -->
+			</div> <!-- .container -->
+			<div class="et_search_outer">
+				<div class="container et_search_form_container">
+					<form role="search" method="get" class="et-search-form" action="http://coderscampus.com/">
+					<input type="search" class="et-search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" />					</form>
+					<span class="et_close_search_field"></span>
+				</div>
+			</div>
+		</header> <!-- #main-header -->
+
+		<div id="et-main-area">
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+
+<style type="text/css" id="et-builder-advanced-style">
+
+.clear {
+    width: 100%;
+    clear: both !important;
+    display: inline-block;
+}
+.clear:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+* html .clear {
+    height: 1%;
+}
+				
+.et_pb_fullwidth_header_0 .header-content h1 { padding-bottom: 32px;line-height: 53px !important;text-transform: uppercase;font-family: roboto !important;font-weight: 300 !important;font-size: 35px !important;padding: 0 50px; }
+.et_pb_fullwidth_header_0:after { clear: both; }
+.et_pb_fullwidth_header_0 .header-content .et_pb_button_one { background: rgb(22, 189, 240) none repeat scroll 0% 0%; color: white; border: medium none rgb(22, 189, 240); text-transform: uppercase; font-size: 18px; font-family: lato !important; font-weight: 600; }
+.et_pb_fullwidth_code_0 { width: 500px;margin: -154px auto 113px; }
+.et_pb_blog_0 .et_pb_post { font-size: 17px; }
+.et_pb_blog_0 .et_pb_post h2 { font-family: 'Roboto', Helvetica, Arial, Lucida, sans-serif !important;font-size: 32px !important; }
+.et_pb_fullwidth_header_0 { padding-top: 125px;padding-bottom: 120px; }
+body #page-container .et_pb_fullwidth_header_0 .et_pb_button_one.et_pb_button:after { 
+						line-height:1.7em;
+						font-size:18px !important;
+						opacity:0;
+						margin-left:-1em;left:auto; }
+.et_pb_fullwidth_header_0.et_pb_fullwidth_header p { color: #ffffff !important; font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;font-size: 20px; }
+.et_pb_fullwidth_header_0.et_pb_fullwidth_header .et_pb_fullwidth_header_subhead { color: #ffffff !important; font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;font-size: 20px; }
+.et_pb_fullwidth_header_0.et_pb_fullwidth_header .et_pb_fullwidth_header_overlay { background-color: rgba(0,0,0,0.7); }
+body #page-container .et_pb_fullwidth_header_0 .et_pb_button_one.et_pb_button { 
+					
+					
+					
+					
+					letter-spacing:0px;
+					font-size:18px;
+					font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif !important; }
+body #page-container .et_pb_fullwidth_header_0 .et_pb_button_one.et_pb_button:hover:after { margin-left:.3em;
+						left:auto;margin-left:.3em;
+						opacity: 1; }
+body #page-container .et_pb_fullwidth_header_0 .et_pb_button_one.et_pb_button:hover { 
+					
+					
+					
+					letter-spacing:0px;
+					padding-left:0.7em; padding-right: 2em; }
+.et_pb_fullwidth_header_0.et_pb_fullwidth_header .header-content h1 { color: #ffffff !important; font-family: 'Roboto', Helvetica, Arial, Lucida, sans-serif;font-size: 35px; }
+
+@media only screen and ( max-width: 980px ) {
+	body #page-container .et_pb_fullwidth_header_0 .et_pb_button_one.et_pb_button:hover { letter-spacing:0px; }
+	body #page-container .et_pb_fullwidth_header_0 .et_pb_button_one.et_pb_button,body #page-container .et_pb_fullwidth_header_0 .et_pb_button_one.et_pb_button:after { 
+								letter-spacing:0px; }
+}
+
+@media only screen and ( max-width: 767px ) {
+	body #page-container .et_pb_fullwidth_header_0 .et_pb_button_one.et_pb_button:hover { letter-spacing:0px; }
+	body #page-container .et_pb_fullwidth_header_0 .et_pb_button_one.et_pb_button,body #page-container .et_pb_fullwidth_header_0 .et_pb_button_one.et_pb_button:after { 
+								letter-spacing:0px; }
+}
+</style>
+<style>
+
+.et_right_sidebar #main-content .container:before {
+    display:none !important;
+}
+
+.et_post_meta_wrapper h1 {
+    font-size: 38px;
+    line-height: 46px;
+    padding:0;
+    font-family: "Roboto", Helvetica, sans-serif !important;
+}
+
+.et_post_meta_wrapper ul {
+    list-style-type: none !important;
+    padding: 0 !important;
+}
+
+.et_post_meta_wrapper a {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+button.css3button {
+    margin-top:20px !Important;
+    background: #19acca !important;
+    -moz-border-radius: 5px !important;
+    -webkit-border-radius: 5px !important;
+    border-radius: 5px !important;
+    border: 0 !important;
+    font-family: Roboto,sans-serif;
+    font-size: 18px !important;
+    line-height: 20px !important;
+    font-weight: 600 !important;
+    color: #fff;
+    padding: 0 0 16px 0 !important;
+    width: 100%;
+    white-space: normal;
+    cursor: pointer;
+    text-transform: uppercase !important;
+    border-bottom: 3px solid #11839A !important;
+}
+
+button.css3button:hover {
+    background:#129BB7 !important;
+}
+
+.widget_search input#s, .widget_search input#searchsubmit {
+    height: 40px !important;
+    margin: 0;
+    padding: 0.7em;
+    border: 1px solid #2EB5ED;
+    color: #fff;
+    font-size: 14px;
+    line-height: normal !important;
+}
+
+.widget_search #searchsubmit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70px;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: #2EB5ED;
+    cursor: pointer;
+}
+
+h4.widgettitle {
+    font-size: 22px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #1DAFEC;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: #1DAFEC;
+}
+
+h1 {
+font-family: roboto !important;
+padding-bottom: 10px;
+color: #333;
+font-weight: 300 !important;
+line-height: 40px !important;
+font-size: 30px !important;
+}
+
+#logo {
+width: 250px;
+}html {
+overflow-x:hidden;
+overflow-y:scroll;
+max-width:100%;
+}
+
+.et_pb_section_parallax {
+    overflow:visible;
+}
+
+#main-header {
+background-color: rgba(255, 255, 255, 0) !important;
+box-shadow: none !important;
+}
+
+.et_header_style_left #et-top-navigation nav > ul > li > a {
+color: white !important;
+font-family: roboto !important;
+}
+
+.et_pb_fullwidth_header .et_pb_fullwidth_header_container.center .header-content {
+width: 95%;
+max-width: 890px;
+}
+
+.et_pb_fullwidth_header_0 .et_pb_button_one.et_pb_button {
+margin-top: 0 !important;
+}
+
+.et_pb_fullwidth_header .et_pb_parallax_css {
+background-position: 0px -40px;
+}
+
+.et_pb_fullwidth_header {
+margin-top:-80px;
+}
+
+.post-meta {
+    color: #B3B3B3 !important;
+    text-transform: uppercase;
+    font-size: 13px !important;
+    font-weight: 600;
+    margin: 10px 0 20px 0 !important;
+    text-align: center;
+}
+
+.post-meta a {
+        color: #2BB4ED !important;
+}
+
+.et_pb_post {
+    margin-bottom: 60px;
+    text-align: left;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.et_pb_posts a.more-link {
+    display: block;
+    clear: both;
+    margin-top: 17px;
+    text-transform: uppercase;
+    font-size: 13px;
+    width: 150px;
+    margin: 17px auto;
+    background: transparent;
+    color: #1dafec;
+    padding: 5px;
+    font-weight: 500;
+    border-radius: 2px;
+    line-height: 24px;
+    border:2px solid #1dafec;
+    transition: 0.4s all;
+}
+
+.et_pb_posts a.more-link:hover {
+    background: #1dafec;
+    color:white;
+}
+
+/*
+li.categories {
+    list-style-type: none;
+    margin-top: -50px;
+    margin-bottom: 100px;
+    text-align: center;
+    font-size: 24px;
+    text-transform: uppercase;
+    padding: 25px 0;
+}
+
+.entry-content ul {
+   list-style-type:none;
+   padding:0;
+   margin-top:15px;
+}
+
+li.cat-item {
+  float:left;
+  padding:0 10px;
+}
+
+li.cat-item a {
+    display: block;
+    clear: both;
+    margin-top: 17px;
+    text-transform: uppercase;
+    font-size: 13px;
+    width: 184px;
+    background: transparent;
+    color: #212121;
+    padding: 5px;
+    font-weight: 500;
+    border-radius: 2px;
+    line-height: 24px;
+    border: 2px solid #505050;
+    text-align: center;
+    transition: 0.4s all;
+}
+
+li.cat-item a:hover {
+    background:#505050;
+    color:white;
+}
+*/
+
+form.searchform input {
+    border:0;
+    margin: 0;
+    padding: 17px;
+    color: #fff;
+    font-size: 14px;
+    line-height: normal !important;
+    width: 89%;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    background: rgb(255, 255, 255);
+}
+
+input#searchsubmit {
+    border-radius: 0;
+    content: ' ';
+    width: 11%;
+    margin: 0;
+    padding: 16px 10px;
+    border: 1px solid #2EB5ED;
+    color: #fff;
+    font-size: 14px;
+    line-height: normal !important;
+    background-color: #2EB5ED;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-image: url('http://www.clker.com/cliparts/n/U/H/1/H/u/search-icon-white-one-md.png');
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor:pointer;
+    text-indent:999px;
+    transition: 0.4s all;
+    margin-top:20px;
+}
+
+input#searchsubmit:hover {
+    background-color: #22A1D6;
+    border: 1px solid #22A1D6;
+}
+
+#main-content {
+    background-color:#FFF;
+}
+#main-content .container {
+    padding-top:0;
+    margin-top:-42px;
+    max-width: 89%;
+    width: 89%;
+}
+#main-content .container:before {
+    display:none;
+}
+
+.et_pb_post .entry-content {
+    padding-top: 30px;
+    background: white;
+    font-size: 17px;
+}
+
+.et_pb_post .entry-content p {
+    padding-bottom: 1.8em;
+    line-height: 32px;
+}
+
+.et_pb_post .entry-content a {
+    font-weight:bold;
+}
+.et_pb_post h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: 32px;
+    padding: 10px 0 35px 0;
+    margin: 0;
+    line-height:50px
+}
+
+.author-bio {
+    background: #f1f1f1;
+    padding: 20px;
+    float: left;
+    border-radius: 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.author-left {
+    float:left;
+    width:20%;
+}
+
+.author-right {
+    float:right;
+    width:77%;
+}
+
+.author-bio img {
+    border-radius: 150px;
+    width: 150px;
+    height: 150px;
+    margin-top: 11px;
+}
+.author-bio h2 {
+    margin: 20px 20px 0 20px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 10px !important;
+    padding-bottom: 0;
+}
+
+.author-bio p {
+    float: left;
+    margin: 20px 20px 20px 20px;
+    line-height: 25px;
+}
+
+.relatedposts {
+    width: 100%;
+    margin: 0 0 50px 0;
+    float: left;
+    font-size: 12px;
+    background: white;
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 45px;
+}
+.relatedposts h2 {
+    font-size: 24px;
+    padding-bottom: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #444;
+    margin-top: 25px;
+    text-align: center;
+}
+.relatedposts ul {
+    list-style-type: none !important;
+    padding: 0 !important;
+    float: left;
+    width: 100%;
+}
+.relatedposts ul li {
+    float: left;
+    width: 30.4%;
+    margin-right: 33px;
+    text-align: center;
+}
+
+.relatedposts ul li:nth-of-type(3) {
+    margin-right:0;
+}
+.relatedposts h3 {
+    font-size: 20px;
+    margin: 10px 0 5px 0;
+    padding-bottom: 12px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: 300;
+}
+.relatedposts h4 {
+    text-align: center;
+    font-size: 12px;
+    color: #4BBFEF;
+    clear: both;
+    padding: 0;
+}
+
+a.morelink:hover {
+    text-decoration:underline;
+}
+
+.relatedposts p {
+    clear:left;
+    cursor:default;
+    font-size:14px;
+}
+.relatedthumb {
+    margin: 0 1px 0 1px;
+    float: left;
+    width: 100%;
+}
+.relatedthumb img {
+    margin: 0 0 3px 0;
+    padding: 0;
+    max-width:100%;
+}
+
+.relatedposts ul li:hover .relatedcontent h3 {
+    color:#2EB5ED !important;
+}
+
+.relatedthumb a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+.relatedthumb a:hover {
+    color: #000;
+}
+
+@media only screen and (max-width:680px) {
+    .et_pb_post { max-width:100% !important; }
+}
+</style>
+
+
+
+
+							
+				
+<div id="main-content">
+
+<div class="et_pb_section et_pb_fullwidth_section  et_pb_section_0 et_section_regular">
+					
+					<section class="et_pb_fullwidth_header et_pb_section_parallax et_pb_module et_pb_bg_layout_dark et_pb_text_align_center  et_pb_fullwidth_header_0">
+				<div class="et_parallax_bg et_pb_parallax_css" style="background-image: url(http://trevor.philmacnevin.com/wp-content/uploads/2016/02/photo-1453928582365-b6ad33cbcf64-1.jpeg);"></div>
+				<div class="et_pb_fullwidth_header_container center">
+					<div class="header-content-container center">
+					<div class="header-content">
+						
+						<h1>The Ultimate Guide to Hosting a Java Web App with Amazon Web Services (AWS)</h1>
+					</div>
+				</div>
+					
+				</div>
+				<div class="et_pb_fullwidth_header_overlay"></div>
+				<div class="et_pb_fullwidth_header_scroll"></div>
+			</section><div class="et_pb_fullwidth_code et_pb_module  et_pb_fullwidth_code_0">
+				<form role="search" method="get" id="searchform" class="searchform" action="http://trevor.philmacnevin.com/" _lpchecked="1"><div><input type="text" placeholder="Search…" value="" name="s" id="s"><input type="submit" id="searchsubmit"></div></form>
+			</div> <!-- .et_pb_fullwidth_code -->
+				
+			</div>
+
+	<div class="container">
+
+		<div id="content-area" class="clearfix">
+
+				<article id="post-3975" class="et_pb_post post-3975 post type-post status-publish format-standard hentry category-coders-campus-podcast category-podcast-2 wp-image-borders">
+											<div class="et_post_meta_wrapper">
+							
+
+						<p class="post-meta"> by <span class="author vcard"><a href="http://coderscampus.com/author/tp02ga/" title="Posts by Trevor Page" rel="author">Trevor Page</a></span> | <span class="published">Dec 23, 2016</span> | <a href="http://coderscampus.com/category/coders-campus-podcast/" rel="category tag">Coders Campus Podcast</a>, <a href="http://coderscampus.com/category/podcast-2/" rel="category tag">Podcast</a> | <span class="comments-number"><a href="http://coderscampus.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/#respond">5 comments</a></span></p>												</div> <!-- .et_post_meta_wrapper -->
+				
+					<div class="entry-content">
+					<div class="smart-track-player-container stp-color-00aef0-EEEEEE" data-uid="d015"></div>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-The-Ultimate-Guide.jpg" alt="Ultimate Guide to Amazon Web Services (AWS)" width="300" height="250" class="alignright size-full wp-image-3997" />Let&#8217;s start things off by explaining what Amazon Web Services (AWS) actually is and why it&#8217;s useful to you as a Java programmer.</p>
+<p>Amazon Web Services are a bunch of &#8220;products&#8221; that Amazon is offering to make our lives as programmers easier.</p>
+<p>These products come in the form of web applications that help us to do the &#8220;un-fun&#8221; stuff of programming.</p>
+<p>Mostly it involves what we call the &#8220;dev ops&#8221; (development operations), which are the processes that we use to make sure that our code can be properly enjoyed by all of our users.</p>
+<p>To put it simply, AWS helps us to put our applications on the public web for anyone to access and enjoy.</p>
+<p>Typically when we&#8217;re coding, we&#8217;re firing up a web server privately on our own laptops / desktops. We have a Tomcat server installed somewhere that runs our code on localhost:8080 and we code like happy little monkeys.</p>
+<p>But what happens when we finish our application and we&#8217;re ready to show it to the world? Sure we can upload it to GitHub, but that&#8217;s only to be enjoyed by other programmers&#8230; we want our family and friends (and complete strangers) to use our apps and tell us how amazing we all are, right?</p>
+<p>Right.</p>
+<p>You get the idea.</p>
+<h2>Overview</h2>
+<p>Here&#8217;s a quick overview of this ultimate guide so that you have a 10,000 foot view of what we&#8217;re going to be talking about:</p>
+<p><a href="#step1">Step 1: Sign up for AWS</a><br />
+<a href="#step2">Step 2: Create a Tomcat Server with Elastic Beanstalk (an AWS &#8220;product&#8221;)</a><br />
+<a href="#step3">Step 3: Prep your code for deployment to Elastic Beanstalk</a><br />
+<a href="#step4">Step 4: Deploy your code to Elastic Beanstalk</a><br />
+<a href="#step5">Step 5: Create a Database in AWS using Amazon RDS</a><br />
+<a href="#step6">Step 6: Configure the Amazon RDS Instance</a><br />
+<a href="#step7">Step 7: Connect your code to the RDS Instance</a><br />
+<a href="#step8">Step 8: Point a Domain Name to your Fancy new Hosted Application</a><br />
+Step 9 (Optional): Create an SSL Certificate and Tweak your Settings</p>
+<p>Once you&#8217;ve gone through all of these steps, you&#8217;ll have a fully functional cloud-based Java web application hosted with Amazon Web Services.</p>
+<p>You smart little monkey you!</p>
+<h2>Cost / Pricing</h2>
+<p>One thing that people worry about is: how much is this going to cost me?</p>
+<p>It&#8217;s funny that as programmers we&#8217;re so worried about paying for products and services related to programming. I&#8217;m not sure where that kind of thinking came from, but I really think it&#8217;s a bit poisonous. We&#8217;re always reaching for the free alternatives, but they&#8217;re often either much more complicated to use, or they&#8217;re just not a useful in general.</p>
+<p>But having said that, AWS has set things up so that you can use all their services for free for 12 months&#8230; well&#8230; mostly&#8230; To be more specific, you can use one instance of each of their services for free for 12 months. That means you can create one Tomcat server, one database, one &#8220;hosted zone&#8221; etc. for free for 12 months.</p>
+<p>You see, Amazon bases pricing off of hourly usage. So they&#8217;ll give you around 744 hours of free usage per month for all of their products / services. This means that if you launch two Tomcat servers, you&#8217;ll be using about 1,488 hours per month, which means you&#8217;ll be paying for 744 hours of Tomcat usage.</p>
+<p>They also have a graduated cost structure, which means that you can choose to pay less for less powerful &#8220;servers&#8221; or pay more for gradually more and more powerful &#8220;servers&#8221;. As of the time of posting this article, a &#8220;micro&#8221; instance (which is a Server with 1 Gig of RAM) goes for about $0.012/hr (or about $8.64/month). A micro instance is great for a development environment and even a small production environment if you don&#8217;t have any active users.</p>
+<p>For a full list of their prices, you can <a href="https://aws.amazon.com/ec2/pricing/on-demand/" target="_blank">check out this page</a>.</p>
+<h2 name="step1">Step 1: Sign Up for AWS</h2>
+<p>In order to get started, you&#8217;ll need to sign up for an AWS account.</p>
+<p>This can be done via <a href="https://aws.amazon.com">aws.amazon.com</a></p>
+<p>Find the button on the screen that says something like &#8220;Create an AWS account&#8221; or &#8220;Sign into the Console&#8221;. Usually it&#8217;s in the top right.</p>
+<p>This should take you to the account creation / sign in screen that looks something like this:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-1.png" alt="aws-step1-img1" width="482" height="534" class="aligncenter size-full wp-image-3979" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-1.png 482w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-1-271x300.png 271w" sizes="(max-width: 482px) 100vw, 482px" /></p>
+<p>If you already have a regular Amazon account (like the one you use to shop on Amazon), then you can use this account to just sign in and get the process started.</p>
+<p>Otherwise, click on the &#8220;I am a new user&#8221; radio button and type in an email address to create a new Amazon account.</p>
+<p>If you&#8217;re creating a brand new account, then you&#8217;ll need to fill out some account information (name / email address / password) on the next screen. It should look something like this:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-2.png" alt="aws-step1-img2" width="776" height="426" class="aligncenter size-full wp-image-3980" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-2.png 776w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-2-300x165.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-2-768x422.png 768w" sizes="(max-width: 776px) 100vw, 776px" /></p>
+<p>Next up is the screen you&#8217;ll see if you just logged in with your existing Amazon credentials (or if you just filled out the previous screen with your new account information).</p>
+<p>Here you&#8217;ll need to tell AWS more about yourself or your business.</p>
+<p>If you&#8217;re creating this account for your business, then choose the &#8220;Company Account&#8221; radio button. If you&#8217;re just signing up to use this for your own personal reasons (like creating apps for fun or just for learning purposes), then choose &#8220;Personal Account&#8221;.</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-3.png" alt="aws-step1-img3" width="816" height="948" class="aligncenter size-full wp-image-3981" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-3.png 816w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-3-258x300.png 258w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-3-768x892.png 768w" sizes="(max-width: 816px) 100vw, 816px" /></p>
+<p>Once you&#8217;ve filled out all your personal / business information, you&#8217;ll need to give them your payment information.</p>
+<p>Keep in mind that so long as you follow my instructions in this post, you shouldn&#8217;t be charged anything for using AWS for the first 12 months&#8230; keep in mind, this is not something I can guarantee and I don&#8217;t take responsibility for any charges you may incur through your usage of AWS. I can only be a guide to ensure you won&#8217;t be charged for the first 12 months by taking advantage of the AWS free tiers. Also keep in mind that the 12 free months offer was available as of the time of the posting of this article (in late 2016 / early 2017).</p>
+<p>Okay, having said that, here&#8217;s the screen you&#8217;ll be presented with when needing to fill out your payment information:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-img4.png" alt="aws-step1-img4" width="818" height="592" class="aligncenter size-full wp-image-3992" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-img4.png 818w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-img4-300x217.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-img4-768x556.png 768w" sizes="(max-width: 818px) 100vw, 818px" /></p>
+<p>Next up, you&#8217;ll need to confirm your identity by receiving a phone call and either saying or typing in a PIN that you&#8217;re assigned. Go ahead and fill out your phone number and press the &#8220;Call me Now&#8221; button.</p>
+<p>Once you hit &#8220;Call me Now&#8221;, you&#8217;ll be presented with a pin on a screen that looks like this:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-6.png" alt="aws-step1-img6" width="840" height="663" class="aligncenter size-full wp-image-3983" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-6.png 840w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-6-300x237.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-6-768x606.png 768w" sizes="(max-width: 840px) 100vw, 840px" /></p>
+<p>When your phone rings, pick it up and type in that PIN (or say it out loud) to verify your account.</p>
+<p>When you&#8217;ve successfully entered your pin, you&#8217;ll see this screen:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-7.png" alt="aws-step1-img7" width="825" height="552" class="aligncenter size-full wp-image-3984" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-7.png 825w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-7-300x201.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-7-768x514.png 768w" sizes="(max-width: 825px) 100vw, 825px" /></p>
+<p>Go ahead and click on the button that says &#8220;Continue to select your Support Plan&#8221;.</p>
+<p>Amazon Web Services offers a bunch of support plans that gives you the opportunity to have access to an Amazon employee who can help you to set everything up. Generally speaking, unless you&#8217;re a large corporation, you probably won&#8217;t need to choose anything other than their basic support plan (which is completely free) and gives you access to their online documentation.</p>
+<p>Here&#8217;s what that screen looks like (not pictured is the yellow &#8220;continue&#8221; button at the bottom of the screen):</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-8.png" alt="aws-step1-img8" width="822" height="877" class="aligncenter size-full wp-image-3985" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-8.png 822w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-8-281x300.png 281w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-8-768x819.png 768w" sizes="(max-width: 822px) 100vw, 822px" /></p>
+<p>And voila, you are now done creating your account!</p>
+<p>You can now go ahead and login to the console by clicking on the &#8220;Sign in to the console&#8221; button. This will bring you back to the login screen that we started on initially. You can type in your account information that you created previously to login to your AWS dashboard.</p>
+<p>Once you&#8217;ve signed in, you should see a Console / Dashboard that looks something like this:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-9.png" alt="aws-step1-9" width="1585" height="658" class="aligncenter size-full wp-image-3986" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-9.png 1585w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-9-300x125.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-9-768x319.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-9-1024x425.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-step1-9-1080x448.png 1080w" sizes="(max-width: 1585px) 100vw, 1585px" /></p>
+<p>Again, keep in mind that Amazon will likely make changes to their views over time, so your dashboard might not look exactly like the one pictured above.</p>
+<p>Alright! Congrats on getting signed up and logging into your dashboard for the first time.</p>
+<p>The next step is to create a Tomcat server using Amazon Web Services &#8220;Elastic Beanstalk&#8221; product.</p>
+<h2 name="step2">Create a Tomcat Server with Elastic Beanstalk</h2>
+<div class="smart-track-player-container stp-color-00aef0-EEEEEE" data-uid="e9ac"></div>
+<p>Alright, so next on your &#8220;todo&#8221; list should be to create a Tomcat server on an Elastic Beanstalk instance.</p>
+<p>What&#8217;s essentially going to happen here is that we&#8217;re going to create a virtual server in the cloud (an instance) that will be running a Tomcat server.</p>
+<p>Typically what happens is that you&#8217;ll create a Linux server with about 1GB of RAM. This is known as a t2.micro instance, and it&#8217;s part of Amazon&#8217;s free tier offering.</p>
+<p>To create this server, here&#8217;s what you do.</p>
+<p>First login to your AWS dashboard and navigate to Elastic Beanstalk by clicking on the &#8220;services&#8221; menu in the top right, then click on &#8220;Elastic Beanstalk&#8221; (in the &#8220;Compute&#8221; section).</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-1.png" alt="" width="1710" height="765" class="aligncenter size-full wp-image-4000" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-1.png 1710w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-1-300x134.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-1-768x344.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-1-1024x458.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-1-1080x483.png 1080w" sizes="(max-width: 1710px) 100vw, 1710px" /></p>
+<p>Once in Elastic Beanstalk, you&#8217;ll be presented with a &#8220;getting started&#8221; screen. All you need to do to get going is to click on the &#8220;Get Started&#8221; button (or on the &#8220;Create New Application&#8221; link in the top right).</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-2.png" alt="" width="1280" height="506" class="aligncenter size-full wp-image-4001" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-2.png 1280w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-2-300x119.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-2-768x304.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-2-1024x405.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-2-1080x427.png 1080w" sizes="(max-width: 1280px) 100vw, 1280px" /></p>
+<p>On the next screen, you&#8217;ll need to enter a few simple details to get your environment up and running:</p>
+<ol>
+<li>Specify the name of your application (this is typically the name of the product/project that you&#8217;re building)</li>
+<li>Choose your platform (In our case, since we want to launch a Java web app, we&#8217;ll use a Tomcat platform)</li>
+<li>Finally, you can choose to launch a sample application or your own WAR file (We&#8217;ll start with a sample application for now, we can easily change this later)</li>
+</ol>
+<p>Once you click the &#8220;Create Application&#8221; button, AWS will be hard at work creating your environment for you. </p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-4.png" alt="" width="1299" height="470" class="aligncenter size-full wp-image-4003" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-4.png 1299w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-4-300x109.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-4-768x278.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-4-1024x371.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-4-1080x391.png 1080w" sizes="(max-width: 1299px) 100vw, 1299px" /></p>
+<p>This part usually takes about 10 minutes to complete, so you might want to get up and grab a bit to eat while it&#8217;s working.</p>
+<p>Once AWS finishes its work, you&#8217;ll be presented with a screen that you&#8217;ll become very familiar with:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-5.png" alt="" width="1293" height="750" class="aligncenter size-full wp-image-4005" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-5.png 1293w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-5-300x174.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-5-768x445.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-5-1024x594.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-5-1080x626.png 1080w" sizes="(max-width: 1293px) 100vw, 1293px" /></p>
+<p>This is the main Elastic Beanstalk screen for your application.</p>
+<p>There are four main things to take note of&#8230;</p>
+<ol>
+<li>The region that your instance exists. In our example I chose the North Virgina region (aka us-east-1). If you change regions, then you won&#8217;t be able to find your elastic beanstalk instance that you just created.</li>
+<li>Your app&#8217;s tab. If you have many applications running in the same region, you&#8217;ll be able to switch between them via this tab</li>
+<li>Your app&#8217;s URL. When you visit this URL, you&#8217;ll see your application in all its glory (screen-shot of our sample application running pictured below)</li>
+<li>Your app&#8217;s version. Right now we&#8217;re just running a sample app, but once you launch a real application, you&#8217;ll need to specify unique version numbers for each build.</li>
+</ol>
+<p>Okay, now that you&#8217;ve launched your app and you&#8217;ve taken note of the important information on this screen, go ahead and click on your app&#8217;s URL to see it in action:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-6.png" alt="" width="1293" height="790" class="aligncenter size-full wp-image-4006" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-6.png 1293w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-6-300x183.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-6-768x469.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-6-1024x626.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-6-1080x660.png 1080w" sizes="(max-width: 1293px) 100vw, 1293px" /></p>
+<p>Kinda cool right? </p>
+<p>You just launched a Linux server with Tomcat installed on it, and it&#8217;s now running a sample application which you can visit via your app&#8217;s unique public URL!</p>
+<p>Before we jump into what needs to be done to launch your own code onto this server, let&#8217;s take a look at some other important configuration options for your new cloud environment.</p>
+<p>Go ahead and click on the &#8220;Configuration&#8221; tab on the left side of your Elastic Beanstalk screen:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-7.png" alt="" width="1288" height="732" class="aligncenter size-full wp-image-4007" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-7.png 1288w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-7-300x170.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-7-768x436.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-7-1024x582.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-7-1080x614.png 1080w" sizes="(max-width: 1288px) 100vw, 1288px" /></p>
+<p>The first thing I want to show you is how to change the instance you&#8217;re running.</p>
+<p>As you can see from this screenshot, you&#8217;re running a t1.micro instance&#8230; I think this instance is slightly less powerful than the t2.micro, but both instances are free.</p>
+<p>So let&#8217;s have a look at how to change over to the t2.micro instance.</p>
+<p>Click on the gear icon in the top right of the &#8220;Instances&#8221; box:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-8.png" alt="" width="1288" height="732" class="aligncenter size-full wp-image-4008" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-8.png 1288w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-8-300x170.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-8-768x436.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-8-1024x582.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-8-1080x614.png 1080w" sizes="(max-width: 1288px) 100vw, 1288px" /></p>
+<p>This will open up your instance configuration options screen where you&#8217;ll be able to change from a t1.micro to a t2.micro instance.</p>
+<p>Just click on the drop down next to the &#8220;Instance Type&#8221; label and change your selection to the t2.micro instance and click on the &#8220;Apply&#8221; button in the bottom right:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-9.png" alt="" width="1283" height="937" class="aligncenter size-full wp-image-4012" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-9.png 1283w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-9-300x219.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-9-768x561.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-9-1024x748.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-9-1080x789.png 1080w" sizes="(max-width: 1283px) 100vw, 1283px" /></p>
+<p>Don&#8217;t worry too much about messing this step up, because you will be shown a screen that will ask you to confirm that you&#8217;d like to switch instances:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-10.png" alt="" width="1304" height="415" class="aligncenter size-full wp-image-4010" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-10.png 1304w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-10-300x95.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-10-768x244.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-10-1024x326.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-10-1080x344.png 1080w" sizes="(max-width: 1304px) 100vw, 1304px" /></p>
+<p><strong>Note</strong>: If you&#8217;re switching to a non-free tier, it will say so on this screen. If there&#8217;s no warning telling you that you&#8217;re switching away from the free tier, then you&#8217;re good to go.</p>
+<p><strong>Note</strong>: Keep in mind, if you were running an actual live application, this would bring you app down for around 10 minutes while it launches a new instance.</p>
+<p>Here&#8217;s the screen you&#8217;ll also become accustomed to seeing; the &#8220;environment updating&#8221; screen:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-11.png" alt="" width="1309" height="865" class="aligncenter size-full wp-image-4011" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-11.png 1309w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-11-300x198.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-11-768x508.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-11-1024x677.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-Part-2-11-1080x714.png 1080w" sizes="(max-width: 1309px) 100vw, 1309px" /></p>
+<p>Once your new t2.micro instance is ready to go, you&#8217;ll see that your screen will change from the &#8220;INFO&#8221; status to the &#8220;OK&#8221; health status.</p>
+<p>Congrats! You&#8217;ve now just upgraded your instance to a slightly more powerful one with a bit more RAM.</p>
+<h2 name="step3">Step 3: Prep Your Code for Deployment to Elastic Beanstalk</h2>
+<div class="smart-track-player-container stp-color-00aef0-EEEEEE" data-uid="fbc1"></div>
+<p>Boo yah! You&#8217;ve got a running instance in elastic beanstalk&#8230; but it&#8217;s not really exciting, because it doesn&#8217;t actually contain your application&#8217;s code yet.</p>
+<p>So let&#8217;s resolve this issue!</p>
+<p>There are two possibilities that could unfold here:</p>
+<ol>
+<li>Either you have created your application using Spring Boot</li>
+<li>Or you haven&#8217;t created your application using Spring Boot</li>
+</ol>
+<p>If you fall into camp #1 (i.e. you created your app as a Spring Boot application), you&#8217;ve already done everything you need to do in order to make your code deployable to Elastic beanstalk. Congrats! Now you can move onto <a href="#step4">Step #4</a>.</p>
+<p>If you fall into camp #2 and you didn&#8217;t create your application using Spring Boot, there may only be one thing you need to do in order to make things work properly.</p>
+<p>First thing is to just create a deployable WAR file from your project&#8230; this is usually done my invoking a Maven Install on your code-base. Make sure that you&#8217;ve got your maven <code>pom.xml</code> file set to deploy as a WAR and not a JAR (this is found in the <code>&lt;packaging&gt;</code> section of the pom file)</p>
+<p>You can then take that WAR file and upload it to Elastic Beanstalk and see if it works&#8230; For my case, I wasn&#8217;t so lucky. When I deployed my WAR file, the application didn&#8217;t boot up properly. I didn&#8217;t see any obvious errors or warnings, I just had a blank website when I visited the endpoint URL. So I had to try something different to get it working.</p>
+<p>Now, I can&#8217;t speak to ALL the different scenarios that could arise here, but I can fill you in on the problem I had when I tried to deploy an old app into the cloud.</p>
+<p>What I did to fix my &#8220;blank website&#8221; issue was just convert my existing project over to a Spring Boot application.</p>
+<p>There&#8217;s some documentation on how to do this on Spring&#8217;s website via <a href="http://docs.spring.io/spring-boot/docs/current/reference/html/howto-traditional-deployment.html#howto-convert-an-existing-application-to-spring-boot">docs.spring.io</a></p>
+<p>The basic idea there is that you replace your existing class that contains your <code>main</code> method with the Spring Boot version.</p>
+<p>Spring Boot&#8217;s version looks like this:</p>
+<pre name="code" class="java">
+@SpringBootApplication
+public class Application extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Application.class);
+    }
+
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Application.class, args);
+    }
+
+}
+</pre>
+<p>But again, you might need to do some further tweaking to your code-base, so be sure to follow the instructions in the Spring documentation link above.</p>
+<h2 name="step4">Step 4: Deploy your code to Elastic Beanstalk</h2>
+<p>Now that your code is prepped and ready to deploy to AWS, I&#8217;ll show you how easy it is to deploy your code.</p>
+<h4>Deploying Code Step 1: Make Sure You Create a WAR File</h4>
+<p>The first pre-requisite step here is that you&#8217;ve set up Maven to deploy your project as a WAR file (instead of a JAR) </p>
+<p>This can be seen inside of your pom.xml file under the <code>&lt;packaging&gt;</code> setting. It should look something like this:</p>
+<pre name="code" class="xml">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+	&lt;groupId&gt;com.proffesso&lt;/groupId&gt;
+	&lt;artifactId&gt;proffesso-core&lt;/artifactId&gt;
+	&lt;version&gt;1.5.1.12&lt;/version&gt;
+
+	<!-- Here's where you set it up as a WAR file-->
+	&lt;packaging&gt;war&lt;/packaging&gt;
+
+	&lt;name&gt;CourseCreation&lt;/name&gt;
+	&lt;description&gt;CourseCreation project for Spring Boot&lt;/description&gt;
+&lt;/project&gt;
+</pre>
+<h4>Deploying Code Step 2: Run a Maven Install</h4>
+<p>Your next step is to actually have maven package your code together into a deployable WAR file.</p>
+<p>Thankfully Maven makes this easy.</p>
+<ol>
+<li>Right click on your application&#8217;s root project folder inside of Eclipse / Spring Tool Suite.</li>
+<li>Choose Run As</li>
+<li>Choose Maven Install</li>
+</ol>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/deploy-1.png" alt="Maven Install" width="659" height="828" class="aligncenter size-full wp-image-4022" srcset="http://coderscampus.com/wp-content/uploads/2016/12/deploy-1.png 659w, http://coderscampus.com/wp-content/uploads/2016/12/deploy-1-239x300.png 239w" sizes="(max-width: 659px) 100vw, 659px" /></p>
+<p>Once you do this, Maven will get to work creating a WAR file for you to deploy. </p>
+<p>This file is typically created in the &#8220;target&#8221; directory of your app&#8217;s directory&#8230; but Maven will tell you where this file has been created in the logs.</p>
+<p>Here&#8217;s a screenshot of what to look for in order to find your WAR file:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/deploy-2.png" alt="Finding your war file" width="1608" height="315" class="aligncenter size-full wp-image-4023" srcset="http://coderscampus.com/wp-content/uploads/2016/12/deploy-2.png 1608w, http://coderscampus.com/wp-content/uploads/2016/12/deploy-2-300x59.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/deploy-2-768x150.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/deploy-2-1024x201.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/deploy-2-1080x212.png 1080w" sizes="(max-width: 1608px) 100vw, 1608px" /></p>
+<p>Now it&#8217;s just a matter of logging into AWS, navigating to your app in Elastic Beanstalk and Updating your app by uploading this WAR file.</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/deploy-3.png" alt="Upload your war file" width="1666" height="774" class="aligncenter size-full wp-image-4024" srcset="http://coderscampus.com/wp-content/uploads/2016/12/deploy-3.png 1666w, http://coderscampus.com/wp-content/uploads/2016/12/deploy-3-300x139.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/deploy-3-768x357.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/deploy-3-1024x476.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/deploy-3-1080x502.png 1080w" sizes="(max-width: 1666px) 100vw, 1666px" /></p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/deploy-4.png" alt="Choose your war file" width="565" height="320" class="aligncenter size-full wp-image-4025" srcset="http://coderscampus.com/wp-content/uploads/2016/12/deploy-4.png 565w, http://coderscampus.com/wp-content/uploads/2016/12/deploy-4-300x170.png 300w" sizes="(max-width: 565px) 100vw, 565px" /></p>
+<p>Hit that big beautiful blue &#8220;Deploy&#8221; button and your WAR file will be uploaded to Elastic Beanstalk and deployed before your very eyes!</p>
+<p>Once the WAR file is uploaded, it typically takes around 60 seconds to process it and deploy it to your server. So just sit tight and watch AWS do it&#8217;s magic and transition from the warning state to the &#8220;OK&#8221; state.</p>
+<p>Once the health is back to &#8220;OK&#8221;, you should be able to visit your unique URL for your website and see the fruits of your labor.</p>
+<h2 name="step5">Create a Database in AWS using Amazon RDS</h2>
+<div class="smart-track-player-container stp-color-00aef0-EEEEEE" data-uid="0fcf"></div>
+<p>Sweet, so if you&#8217;ve follow all the instructions up to this point, then you&#8217;ve launched your application into the cloud! </p>
+<p>But&#8230;</p>
+<p>You still need to hook it up to a database, and if you were using a reference to <code>localhost:8080</code> for your database connection string, then this newly launched cloud application isn&#8217;t going to work properly.</p>
+<p>To solve this problem, we&#8217;ll need to dive into how we can launch a database in the cloud using Amazon RDS.</p>
+<p>Navigate to the RDS product:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-1.png" alt="" width="1551" height="788" class="aligncenter size-full wp-image-4031" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-1.png 1551w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-1-300x152.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-1-768x390.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-1-1024x520.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-1-1080x549.png 1080w" sizes="(max-width: 1551px) 100vw, 1551px" /></p>
+<p>Click the &#8220;Get Started Now&#8221; button, or alternatively, if you&#8217;ve already created an RDS instance in the past, you&#8217;ll need to click the &#8220;Launch a DB Instance&#8221; button:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-2.png" alt="" width="1568" height="789" class="aligncenter size-full wp-image-4032" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-2.png 1568w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-2-300x151.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-2-768x386.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-2-1024x515.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-2-1080x543.png 1080w" sizes="(max-width: 1568px) 100vw, 1568px" /></p>
+<p>Then for this post, we&#8217;ll be creating a MySQL instance. These tend to be the cheapest, as MySQL is a free technology, but you can feel free to choose whichever option best suits your needs.</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-3.png" alt="" width="1566" height="787" class="aligncenter size-full wp-image-4033" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-3.png 1566w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-3-300x151.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-3-768x386.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-3-1024x515.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-3-1080x543.png 1080w" sizes="(max-width: 1566px) 100vw, 1566px" /></p>
+<p>Then I choose to launch an instance under a Dev/Test profile (as opposed to a Production type DB instance) as we&#8217;re just getting started and the DB we&#8217;re launching won&#8217;t likely be the one we use in a production environment&#8230; so you can save some cash by choose the free option (i.e. dev/test version of MySQL).</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-4.png" alt="" width="1568" height="787" class="aligncenter size-full wp-image-4034" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-4.png 1568w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-4-300x151.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-4-768x385.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-4-1024x514.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-4-1080x542.png 1080w" sizes="(max-width: 1568px) 100vw, 1568px" /></p>
+<p>Next up we&#8217;ll need to choose what kind of instance to run for the DB&#8230; in this case, I&#8217;d recommend you use the t2.micro instance as it&#8217;s free tier eligible. Also, be sure to say &#8220;No&#8221; to the multi-AZ Deployment to stay on the free tier.</p>
+<p>I also choose the minimum 5GB of General Purpose SSD storage. It&#8217;s plenty fast and it&#8217;ll get the job done in terms of size&#8230; as of the writing of this article, my entire Proffesso.com application only uses about 1.5 MB of data for 100 teachers and thousands of students.</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-5.png" alt="" width="915" height="608" class="aligncenter size-full wp-image-4035" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-5.png 915w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-5-300x199.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-5-768x510.png 768w" sizes="(max-width: 915px) 100vw, 915px" /></p>
+<p><strong>Note</strong>: Don&#8217;t be intimidated by Amazon&#8217;s warning regarding using less than 100GB of data&#8230; they&#8217;re just trying to get more money out of you 😉 5GB is plenty of space for now&#8230; you can always expand it later (you can&#8217;t shrink your DB however, sneaky sneaky Amazon).</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-6.png" alt="" width="498" height="105" class="aligncenter size-full wp-image-4036" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-6.png 498w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-6-300x63.png 300w" sizes="(max-width: 498px) 100vw, 498px" /></p>
+<p>Next up is your standard connection type information for your database. Choose a unique DB instance identifier. <strong>Note</strong>: this identifier is used to identify the AWS DB instance (not the name of the database). </p>
+<p>You&#8217;ll also set up your username / password that you&#8217;ll use to connect to your DB.</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-7.png" alt="" width="768" height="309" class="aligncenter size-full wp-image-4037" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-7.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-7-300x121.png 300w" sizes="(max-width: 768px) 100vw, 768px" /></p>
+<p>Then you&#8217;ll need to give your database a name (among other things), for now I just assign a name and leave everything else set as the default you see below:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-8.png" alt="" width="788" height="673" class="aligncenter size-full wp-image-4038" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-8.png 788w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-8-300x256.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-8-768x656.png 768w" sizes="(max-width: 788px) 100vw, 788px" /></p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-9.png" alt="" width="726" height="407" class="aligncenter size-full wp-image-4039" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-9.png 726w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-9-300x168.png 300w" sizes="(max-width: 726px) 100vw, 726px" /></p>
+<p>Now you&#8217;re all set to launch your first Amazon RDS instance!</p>
+<p>But don&#8217;t get too excited, there&#8217;s still a bunch of other configuration we&#8217;ll need to do.</p>
+<p>Go ahead and click on the &#8220;View Your DB Instance&#8221; button to watch the database get created before your very eyes&#8230; it usually takes about 10 minutes or so to get through the entire process of launching the instance to the point where it&#8217;s available for use.</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-10.png" alt="" width="660" height="446" class="aligncenter size-full wp-image-4040" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-10.png 660w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-10-300x203.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<h2 name="step6">Step 6: Configure the Amazon RDS Instance</h2>
+<p>Once the status of your new DB instance changes from &#8220;creating&#8221; to &#8220;backing up&#8221; to &#8220;available&#8221; you&#8217;ll be ready to start configuring things.</p>
+<p>The first step here is to ensure that you can connect to your DB from outside of your VPC (virtual private cloud). At this moment, if you attempted to connect to your DB from your app or from a DB IDE (like Toad or Workbench) it wouldn&#8217;t work.</p>
+<p>So let&#8217;s open up some ports so that we can connect to our new DB &#8220;from the outside&#8221;.</p>
+<p><strong>Note</strong>: as of the writing of this article in early 2017, it looks like AWS automatically creates an entry for your IP address to connect to the DB instance. So if all goes well, you should be able to connect to your DB instance as soon as it&#8217;s created&#8230; but it still important to understand how these security settings are set up so that if ever your IP address changes, you&#8217;ll be able to properly connect.</p>
+<p>First step is to identify which security group was created for your DB instance.</p>
+<p>To do this, click on the arrow to expand the details section of your DB. When you do this you&#8217;ll be in the &#8220;monitoring&#8221; tab, but we&#8217;ll need to click on the &#8220;details&#8221; tab on the left side of the DB information to see the security group information. See the screenshot below for more details:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-12.png" alt="" width="1559" height="790" class="aligncenter size-full wp-image-4044" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-12.png 1559w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-12-300x152.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-12-768x389.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-12-1024x519.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-12-1080x547.png 1080w" sizes="(max-width: 1559px) 100vw, 1559px" /></p>
+<p>Armed with the information of knowing our security group (in this case the security group ID is sg-cef63db1) we can now head over to the EC2 page by clicking on &#8220;Services -> EC2&#8221;:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-13.png" alt="" width="1554" height="801" class="aligncenter size-full wp-image-4045" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-13.png 1554w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-13-300x155.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-13-768x396.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-13-1024x528.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-13-1080x557.png 1080w" sizes="(max-width: 1554px) 100vw, 1554px" /></p>
+<p>This will bring us to our EC2 page. From here, this is where we will need to edit our security groups for our EC2 instance. Click on the &#8220;Security Groups&#8221; option along the left side of the screen. Then we&#8217;ll select our security group from before (sg-cef63db1) and we&#8217;ll switch over to the &#8220;Inbound&#8221; rules.</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-14.png" alt="" width="1565" height="791" class="aligncenter size-full wp-image-4046" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-14.png 1565w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-14-300x152.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-14-768x388.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-14-1024x518.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-14-1080x546.png 1080w" sizes="(max-width: 1565px) 100vw, 1565px" /></p>
+<p>In the image above, you can see that it already has one rule, a &#8220;MYSQL/Aurora&#8221; rule that opens port 3306 for an IP address. The IP address you see in the screenshot was my IP address at the time this DB instance was created. If you don&#8217;t have a line like this in your set up, here&#8217;s how you add one&#8230; Click the &#8220;Edit&#8221; button to edit the &#8220;Inbound&#8221; rules and either edit the existing rule or add a new one like so:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-15.png" alt="" width="1566" height="791" class="aligncenter size-full wp-image-4047" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-15.png 1566w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-15-300x152.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-15-768x388.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-15-1024x517.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-15-1080x546.png 1080w" sizes="(max-width: 1566px) 100vw, 1566px" /></p>
+<p>You can also choose to add a brand new rule and open it up so that it will allow all inbound traffic on port 3306. To do this, just choose the &#8220;Anywhere&#8221; option as the source like so:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-16.png" alt="" width="1568" height="788" class="aligncenter size-full wp-image-4048" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-16.png 1568w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-16-300x151.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-16-768x386.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-16-1024x515.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-16-1080x543.png 1080w" sizes="(max-width: 1568px) 100vw, 1568px" /></p>
+<p>Now, it should go without saying that allowing any and all inbound traffic is a security risk. So I wouldn&#8217;t suggest using that setting in production.</p>
+<p>But having said that, your new DB instance should be ready to rock!</p>
+<h2 name="step7">Step 7: Connect your code to the RDS Instance</h2>
+<p>You can login to your DB instance using MySQL Workbench or Toad for MySQL using the following info:</p>
+<ol>
+<li>Host -> Endpoint (i.e. coderscampusdbs.cqejacgw6k3q.us-east-1.rds.amazonaws.com)</li>
+<li>Username -> myUsername</li>
+<li>Password -> [your password]</li>
+<li>Database -> myDatabaseName</li>
+<li>Port -> 3306</li>
+</ol>
+<p><strong>Note</strong>: all this connection information can be found on the details tab of your DB instance, I&#8217;ll show another screenshot highlighting all these data points below:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-17.png" alt="" width="1631" height="850" class="aligncenter size-full wp-image-4049" srcset="http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-17.png 1631w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-17-300x156.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-17-768x400.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-17-1024x534.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/AWS-RDS-17-1080x563.png 1080w" sizes="(max-width: 1631px) 100vw, 1631px" /></p>
+<p>Next, you&#8217;ll need to connect your application&#8217;s code to this database.</p>
+<p>This is easily done via your properties file which you used to connect to your database previously.</p>
+<p>If you&#8217;re using a Spring Boot app, this can be found in your <code>application.properties</code> file.</p>
+<h2 name="step8">Point a Domain Name to your Fancy new Hosted Application</h2>
+<div class="smart-track-player-container stp-color-00aef0-EEEEEE" data-uid="2343"></div>
+<p>Alright, so far you&#8217;ve got:</p>
+<ol>
+<li>Your application hosted in Elastic beanstalk &#8211; <span style='color: green; font-weight: bold;'>check</span></li>
+<li>Your database hosted in RDS and linked to your application &#8211; <span style='color: green; font-weight: bold;'>check</span></li>
+<li>A user friendly URL pointing to your application &#8211; <span style='color: red; font-weight: bold;'>not yet</span></li>
+<ol>
+<p>We&#8217;re so close to being completely done with launching our Java app into the cloud.</p>
+<p>In order to get rid of the non-user friendly URL that Elastic Beanstalk assigns to your application, you&#8217;ll need to make use of another AWS product called &#8220;Route 53&#8221;.</p>
+<p>So let&#8217;s hop on over to the Route 53 Product:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/route53-1.png" alt="" width="1455" height="801" class="aligncenter size-full wp-image-4059" srcset="http://coderscampus.com/wp-content/uploads/2016/12/route53-1.png 1455w, http://coderscampus.com/wp-content/uploads/2016/12/route53-1-300x165.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/route53-1-768x423.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/route53-1-1024x564.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/route53-1-1080x595.png 1080w" sizes="(max-width: 1455px) 100vw, 1455px" /></p>
+<p>This will bring up a page that will likely look like the following screenshot&#8230; Click on the &#8220;Get Started&#8221; button:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/route53-0.png" alt="" width="1736" height="786" class="aligncenter size-full wp-image-4058" srcset="http://coderscampus.com/wp-content/uploads/2016/12/route53-0.png 1736w, http://coderscampus.com/wp-content/uploads/2016/12/route53-0-300x136.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/route53-0-768x348.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/route53-0-1024x464.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/route53-0-1080x489.png 1080w" sizes="(max-width: 1736px) 100vw, 1736px" /></p>
+<p>Inside of Route 53, we can create &#8220;Hosted Zones&#8221; which allow us to forward our incoming HTTP traffic to our Elastic Beanstalk application from any domain we own.</p>
+<p>So the only pre-requisite here is that you&#8217;ll need to own a domain name that will forward to our Elastic Beanstalk application.</p>
+<p>For this example, I&#8217;ll be using a domain I own by the name of &#8220;businessoftech.com&#8221;. The final outcome will be that if someone navigates to businessoftech.com it will send them to my Java application.</p>
+<p>So I&#8217;ll show you how I created my own &#8220;Hosted Zone&#8221; using the businessoftech.com domain name (you&#8217;ll obviously need to use a different domain name for your hosted zone):</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/route53-2.png" alt="" width="1794" height="790" class="aligncenter size-full wp-image-4060" srcset="http://coderscampus.com/wp-content/uploads/2016/12/route53-2.png 1794w, http://coderscampus.com/wp-content/uploads/2016/12/route53-2-300x132.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/route53-2-768x338.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/route53-2-1024x451.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/route53-2-1080x476.png 1080w" sizes="(max-width: 1794px) 100vw, 1794px" /></p>
+<p>Once this hosted zone has been created, make note of the nameserver values in the &#8220;NS&#8221; row:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/route53-3.png" alt="" width="1313" height="381" class="aligncenter size-full wp-image-4061" srcset="http://coderscampus.com/wp-content/uploads/2016/12/route53-3.png 1313w, http://coderscampus.com/wp-content/uploads/2016/12/route53-3-300x87.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/route53-3-768x223.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/route53-3-1024x297.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/route53-3-1080x313.png 1080w" sizes="(max-width: 1313px) 100vw, 1313px" /></p>
+<p>These nameservers are what you&#8217;ll need to point your domain name to. How you do this will vary from provider to provider, but you can easily google the term &#8220;Change nameserver on domain with [xyz provider]&#8221;. </p>
+<p>In my example, I use GoDaddy.com as my domain name provider. So I need to navigate to the DNS settings of my &#8220;businessoftech.com&#8221; domain and change the nameservers:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/route53-4.png" alt="" width="1180" height="420" class="aligncenter size-full wp-image-4062" srcset="http://coderscampus.com/wp-content/uploads/2016/12/route53-4.png 1180w, http://coderscampus.com/wp-content/uploads/2016/12/route53-4-300x107.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/route53-4-768x273.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/route53-4-1024x364.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/route53-4-1080x384.png 1080w" sizes="(max-width: 1180px) 100vw, 1180px" /></p>
+<p><b>Note</b>: this is what the GoDaddy nameserver settings look like, I needed to choose a &#8220;custom&#8221; setting for the nameservers inside of GoDaddy&#8217;s settings.</p>
+<p>Once we&#8217;ve forwarded the domain&#8217;s nameservers over to Route 53&#8217;s nameservers, we&#8217;re ready to create a &#8220;Record Set&#8221; inside of Route 53.</p>
+<p>I could write a whole article on DNS settings and record types, but for now the only thing you need to know is that we need to create &#8220;A Records&#8221; inside of Route 53. These are the pieces of data that tell the interwebs where to go when someone accesses a domain name.</p>
+<p>So we want to configure it so that when someone navigates to businessoftech.com it should point to the AWS app.</p>
+<p>Here&#8217;s how we do that!</p>
+<p>Create a new &#8220;Record Set&#8221;, it defaults to an &#8220;A Record&#8221; type, so we just need to set the alias to be &#8220;yes&#8221; and point it to our elastic beanstalk app:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/route53-5.png" alt="" width="1742" height="796" class="aligncenter size-full wp-image-4063" srcset="http://coderscampus.com/wp-content/uploads/2016/12/route53-5.png 1742w, http://coderscampus.com/wp-content/uploads/2016/12/route53-5-300x137.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/route53-5-768x351.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/route53-5-1024x468.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/route53-5-1080x494.png 1080w" sizes="(max-width: 1742px) 100vw, 1742px" /></p>
+<p>Optionally, you might also want to point a subdomain to the same place as well. A common subdomain is &#8220;www&#8221;. So if someone navigates to www.businessoftech.com, it will also go to the app in AWS.</p>
+<p>Create another record set, but this time set the &#8220;name&#8221; to be &#8220;www&#8221; like so:</p>
+<p><img src="http://coderscampus.com/wp-content/uploads/2016/12/route53-6.png" alt="" width="1744" height="801" class="aligncenter size-full wp-image-4064" srcset="http://coderscampus.com/wp-content/uploads/2016/12/route53-6.png 1744w, http://coderscampus.com/wp-content/uploads/2016/12/route53-6-300x138.png 300w, http://coderscampus.com/wp-content/uploads/2016/12/route53-6-768x353.png 768w, http://coderscampus.com/wp-content/uploads/2016/12/route53-6-1024x470.png 1024w, http://coderscampus.com/wp-content/uploads/2016/12/route53-6-1080x496.png 1080w" sizes="(max-width: 1744px) 100vw, 1744px" /></p>
+<p>Now, I&#8217;d like to say that we&#8217;re done.</p>
+<p>And we pretty much are done at this point.</p>
+<p>But the only thing you need now, is patience (which can be very difficult for programmers).</p>
+<p>You&#8217;ll need to wait between 5 minutes and a few hours for these changes to take effect.</p>
+<p>This means that even though we&#8217;ve set everything up properly, if you go to &#8220;businessoftech.com&#8221; (or whatever domain name YOU were using), it still won&#8217;t be pointing to our application. </p>
+<p>You just need to wait.</p>
+<p>When I ran through this test, it took about 25 minutes before the changes propagated and I actually saw the domain forwarding to the app.</p>
+<p>From my limited experience with this DNS stuff, I&#8217;ve noticed that if you live in the USA, the changes will likely propagate quickly (5 minutes or so) and if you live in Canada it takes about (20 &#8211; 30 minutes). If you live in a country without solid internet infrastructure, it can take much longer. I&#8217;ve seen DNS changes take hours in India.</p>
+<p>So, go get a cup of tea, or make yourself a meal and forget about all this work you just did.</p>
+<p>After you&#8217;ve taken a break, come back and try to navigate to your domain name and see if it&#8217;s now pointing to your application.</p>
+<p>If you&#8217;ve waited hours, and still nothing is working, then maybe go back over all these steps and see if you may have missed something.</p>
+
+					</div> <!-- .entry-content -->
+
+<!-- <div class="author-bio">
+	<div class="author-left">
+	<img src="http://trevor.philmacnevin.com/wp-content/uploads/2016/02/about-pic1-150x150.png">
+	</div>
+	<div class="author-right">
+        <h2>Trevor Page</h2>
+	<p></p>
+	</div>
+</div> -->
+
+<div class="clear"></div>
+
+<div class="relatedposts"><h2>You May Also Like</h2><ul><li><div class="relatedthumb"><a href="http://coderscampus.com/landing-interview-coders-guide-applying-jobs/" rel="bookmark" title="EP30 &#8211; Landing the interview, a coder&#8217;s guide to applying for jobs"></a></div>
+<div class="relatedcontent">
+<h3><a href="http://coderscampus.com/landing-interview-coders-guide-applying-jobs/" rel="bookmark" title="EP30 &#8211; Landing the interview, a coder&#8217;s guide to applying for jobs">EP30 &#8211; Landing the interview, a coder&#8217;s guide to applying for jobs</a></h3>
+<h4><a href="http://coderscampus.com/category/coders-campus-podcast/" rel="category tag">Coders Campus Podcast</a>, <a href="http://coderscampus.com/category/podcast-2/" rel="category tag">Podcast</a></h4>
+<p><p>Everyone will, at some time or another, need to apply for positions and pass an interview or more to land the perfect job. Whether you are fresh out of school, or [&hellip;]</p>
+</p>
+<a class="morelink" href="http://coderscampus.com/landing-interview-coders-guide-applying-jobs/">Read More</a>
+</div>
+</li>
+<li><div class="relatedthumb"><a href="http://coderscampus.com/while-loop-in-javascript/" rel="bookmark" title="EP29 &#8211; While Loop in JavaScript"></a></div>
+<div class="relatedcontent">
+<h3><a href="http://coderscampus.com/while-loop-in-javascript/" rel="bookmark" title="EP29 &#8211; While Loop in JavaScript">EP29 &#8211; While Loop in JavaScript</a></h3>
+<h4><a href="http://coderscampus.com/category/coders-campus-podcast/" rel="category tag">Coders Campus Podcast</a>, <a href="http://coderscampus.com/category/javascript/" rel="category tag">JavaScript</a>, <a href="http://coderscampus.com/category/podcast-2/" rel="category tag">Podcast</a></h4>
+<p><p>The while loop in JavaScript is yet another type of control structure. For a review on what a control structure is, please see our last post on IF statements. The [&hellip;]</p>
+</p>
+<a class="morelink" href="http://coderscampus.com/while-loop-in-javascript/">Read More</a>
+</div>
+</li>
+<li><div class="relatedthumb"><a href="http://coderscampus.com/for-loops-in-javascript/" rel="bookmark" title="EP28 &#8211; For Loops in JavaScript"></a></div>
+<div class="relatedcontent">
+<h3><a href="http://coderscampus.com/for-loops-in-javascript/" rel="bookmark" title="EP28 &#8211; For Loops in JavaScript">EP28 &#8211; For Loops in JavaScript</a></h3>
+<h4><a href="http://coderscampus.com/category/coders-campus-podcast/" rel="category tag">Coders Campus Podcast</a>, <a href="http://coderscampus.com/category/javascript/" rel="category tag">JavaScript</a>, <a href="http://coderscampus.com/category/podcast-2/" rel="category tag">Podcast</a></h4>
+<p><p>Just like an IF statement, a FOR loop in JavaScript is another kind of control structure. For a review on what a control structure is, please see our last post [&hellip;]</p>
+</p>
+<a class="morelink" href="http://coderscampus.com/for-loops-in-javascript/">Read More</a>
+</div>
+</li>
+</ul></div>				<div class="et_post_meta_wrapper">
+					
+					<!-- You can start editing here. -->
+
+<section id="comment-wrap">
+	<h1 id="comments" class="page_title">5 Comments</h1>
+			
+					<ol class="commentlist clearfix">
+					<li class="comment even thread-even depth-1" id="li-comment-1816">
+		<article id="comment-1816" class="comment-body clearfix">
+			<div class="comment_avatar">
+				<img alt='Mahesh' src='http://0.gravatar.com/avatar/f4aceb4c70b91cb0cec088dbe299e6a0?s=80&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/f4aceb4c70b91cb0cec088dbe299e6a0?s=160&amp;d=mm&amp;r=g 2x' class='avatar avatar-80 photo' height='80' width='80' />			</div>
+
+			<div class="comment_postinfo">
+				<span class="fn">Mahesh</span>				<span class="comment_date">
+				on February 25, 2017 at 3:25 am				</span>
+										</div> <!-- .comment_postinfo -->
+
+			<div class="comment_area">
+				
+				<div class="comment-content clearfix">
+				<p>Really nice article. I got more knowledge</p>
+<span class="reply-container"><a rel='nofollow' class='comment-reply-link' href='http://coderscampus.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/?replytocom=1816#respond' onclick='return addComment.moveForm( "comment-1816", "1816", "respond", "3975" )' aria-label='Reply to Mahesh'>Reply</a></span>				</div> <!-- end comment-content-->
+			</div> <!-- end comment_area-->
+		</article> <!-- .comment-body -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1818">
+		<article id="comment-1818" class="comment-body clearfix">
+			<div class="comment_avatar">
+				<img alt='chillion' src='http://1.gravatar.com/avatar/ad725fb99ee4c1a0eb3b9fc39387e0a5?s=80&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/ad725fb99ee4c1a0eb3b9fc39387e0a5?s=160&amp;d=mm&amp;r=g 2x' class='avatar avatar-80 photo' height='80' width='80' />			</div>
+
+			<div class="comment_postinfo">
+				<span class="fn">chillion</span>				<span class="comment_date">
+				on February 25, 2017 at 7:02 am				</span>
+										</div> <!-- .comment_postinfo -->
+
+			<div class="comment_area">
+				
+				<div class="comment-content clearfix">
+				<p>Please am impressed by you teaching and instruction of inside in programming am please to say keep it up and may God grant us the understanding to lead the world in technology. I want to no if there is any room for face to face teachings by you sir in your institute i will glad to hear from you .</p>
+<span class="reply-container"><a rel='nofollow' class='comment-reply-link' href='http://coderscampus.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/?replytocom=1818#respond' onclick='return addComment.moveForm( "comment-1818", "1818", "respond", "3975" )' aria-label='Reply to chillion'>Reply</a></span>				</div> <!-- end comment-content-->
+			</div> <!-- end comment_area-->
+		</article> <!-- .comment-body -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-1882">
+		<article id="comment-1882" class="comment-body clearfix">
+			<div class="comment_avatar">
+				<img alt='Benni' src='http://2.gravatar.com/avatar/8c6ce7f6301477bf0065c53673afc6f9?s=80&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/8c6ce7f6301477bf0065c53673afc6f9?s=160&amp;d=mm&amp;r=g 2x' class='avatar avatar-80 photo' height='80' width='80' />			</div>
+
+			<div class="comment_postinfo">
+				<span class="fn">Benni</span>				<span class="comment_date">
+				on March 6, 2017 at 3:19 pm				</span>
+										</div> <!-- .comment_postinfo -->
+
+			<div class="comment_area">
+				
+				<div class="comment-content clearfix">
+				<p>Thanks a lot, Travor, for this very well prepared podcast.<br />
+I was just listening all the thymeleaf episodes and now I am very curious about these AWS topics. The number of Amazon services made me afraid to start looking at them before. </p>
+<p>For me the talk could be a little more condensed (e.g. a small recap of how to create a war file should be fine) and focused more on the AWS part. </p>
+<p>I&#8217;m looking forward to the next topics (RDS), could you also add an example, how to store some bigger user files with S3? </p>
+<p>PS: Since I am an Android user, I can not access Itunes directly to rate the podcast there, instead I will recommend your podcast orally. 🙂</p>
+<span class="reply-container"><a rel='nofollow' class='comment-reply-link' href='http://coderscampus.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/?replytocom=1882#respond' onclick='return addComment.moveForm( "comment-1882", "1882", "respond", "3975" )' aria-label='Reply to Benni'>Reply</a></span>				</div> <!-- end comment-content-->
+			</div> <!-- end comment_area-->
+		</article> <!-- .comment-body -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2111">
+		<article id="comment-2111" class="comment-body clearfix">
+			<div class="comment_avatar">
+				<img alt='Mark' src='http://1.gravatar.com/avatar/a8499710354529c8350fd8cd21d9afbf?s=80&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/a8499710354529c8350fd8cd21d9afbf?s=160&amp;d=mm&amp;r=g 2x' class='avatar avatar-80 photo' height='80' width='80' />			</div>
+
+			<div class="comment_postinfo">
+				<span class="fn">Mark</span>				<span class="comment_date">
+				on April 14, 2017 at 10:00 pm				</span>
+										</div> <!-- .comment_postinfo -->
+
+			<div class="comment_area">
+				
+				<div class="comment-content clearfix">
+				<p>Well Trevor love listening to your podcasts very informative and so easy to follow I actually used route 53 for my 4th year project which was great for a nice domain name. </p>
+<p>I love your YouTube channel as well keep up the good work.</p>
+<p>I find it very funny I did Java in college for 4 years and now in my job i work as a C# developer full time but i still have a huge interest in Java 😁</p>
+<span class="reply-container"><a rel='nofollow' class='comment-reply-link' href='http://coderscampus.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/?replytocom=2111#respond' onclick='return addComment.moveForm( "comment-2111", "2111", "respond", "3975" )' aria-label='Reply to Mark'>Reply</a></span>				</div> <!-- end comment-content-->
+			</div> <!-- end comment_area-->
+		</article> <!-- .comment-body -->
+<ul class="children">
+	<li class="comment byuser comment-author-tp02ga bypostauthor even depth-2" id="li-comment-2128">
+		<article id="comment-2128" class="comment-body clearfix">
+			<div class="comment_avatar">
+				<img alt='Trevor Page' src='http://2.gravatar.com/avatar/5ce83a0c38cb3802d0f03c651218258e?s=80&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/5ce83a0c38cb3802d0f03c651218258e?s=160&amp;d=mm&amp;r=g 2x' class='avatar avatar-80 photo' height='80' width='80' />			</div>
+
+			<div class="comment_postinfo">
+				<span class="fn">Trevor Page</span>				<span class="comment_date">
+				on April 18, 2017 at 1:12 pm				</span>
+										</div> <!-- .comment_postinfo -->
+
+			<div class="comment_area">
+				
+				<div class="comment-content clearfix">
+				<p>Awesome! Glad I could help keep the &#8220;Java fire&#8221; alive in you</p>
+<span class="reply-container"><a rel='nofollow' class='comment-reply-link' href='http://coderscampus.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/?replytocom=2128#respond' onclick='return addComment.moveForm( "comment-2128", "2128", "respond", "3975" )' aria-label='Reply to Trevor Page'>Reply</a></span>				</div> <!-- end comment-content-->
+			</div> <!-- end comment_area-->
+		</article> <!-- .comment-body -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+			</ol>
+		
+		
+							<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"><span>Submit a Comment</span> <small><a rel="nofollow" id="cancel-comment-reply-link" href="/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="http://coderscampus.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required='true' required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit et_pb_button" value="Submit Comment" /> <input type='hidden' name='comment_post_ID' value='3975' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+		</section>					</div> <!-- .et_post_meta_wrapper -->
+				</article> <!-- .et_pb_post -->
+
+							
+		</div> <!-- #content-area -->
+	</div> <!-- .container -->
+</div> <!-- #main-content -->
+
+
+			<footer id="main-footer">
+				
+
+		
+				<div id="footer-bottom">
+					<div class="container clearfix">
+				<ul class="et-social-icons">
+
+
+</ul>
+						<p id="footer-info">© 2016 Coders Campus</p>
+					</div>	<!-- .container -->
+				</div>
+			</footer> <!-- #main-footer -->
+		</div> <!-- #et-main-area -->
+
+
+	</div> <!-- #page-container -->
+
+	<script class="javascript" src="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shCore.js"></script>
+<script class="javascript" src="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushCSharp.js"></script>
+<script class="javascript" src="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushPhp.js"></script>
+<script class="javascript" src="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushJScript.js"></script>
+<script class="javascript" src="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushJava.js"></script>
+<script class="javascript" src="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushVb.js"></script>
+<script class="javascript" src="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushSql.js"></script>
+<script class="javascript" src="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushXml.js"></script>
+<script class="javascript" src="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushDelphi.js"></script>
+<script class="javascript" src="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushPython.js"></script>
+<script class="javascript" src="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushRuby.js"></script>
+<script class="javascript" src="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushCss.js"></script>
+<script class="javascript" src="http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushCpp.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'http://coderscampus.com/wp-content/plugins/google-syntax-highlighter/Scripts/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+<script>
+    jQuery(document).ready(function () {
+		jQuery.post('http://coderscampus.com?ga_action=googleanalytics_get_script', {action: 'googleanalytics_get_script'}, function(response) {
+			var F = new Function ( response );
+			return( F() );
+		});
+    });
+</script><style>
+	/* Smart Podcast Player custom styles for color 00aef0 */
+
+
+
+.smart-podcast-player.spp-color-00aef0 .spp-player-layout .spp-main-region .spp-main-view .spp-controls .spp-play-pause-circle .spp-play .spp-play-bar,
+.smart-track-player.stp-color-00aef0-EEEEEE .spp-track-layer-1 .spp-playback-controls .spp-play-pause .spp-play .spp-play-bar
+{
+	background-color: #00aef0 ;
+}
+
+.smart-podcast-player.spp-color-00aef0 .spp-player-layout .spp-main-region .spp-main-view .spp-top-matter .spp-artist-and-title .spp-news,
+.smart-track-player.stp-color-00aef0-EEEEEE .spp-track-layer-3 .spp-news,
+.spp-news-overlay .spp-news-region .spp-news-layout .spp-news-basic-cta .spp-button-wrapper .spp-news-subscribe
+{
+	background-color: #60b86c ;
+	color: #FFFFFF ;
+}
+
+.smart-podcast-player.spp-color-00aef0 .spp-player-layout .spp-playlist-region .spp-track-list .spp-track-row .spp-eq-svg,
+.smart-podcast-player.spp-color-00aef0 .spp-player-layout .spp-playlist-region .spp-track-list .spp-track-row .spp-play-svg
+{
+	fill: #00aef0 ;
+}
+
+.smart-podcast-player.spp-color-00aef0 .spp-player-layout .spp-main-region .spp-main-view .spp-progress-bar .spp-progress-played,
+.smart-podcast-player.spp-color-00aef0 .spp-player-layout .spp-main-region .spp-main-view .spp-progress-bar .spp-seek-time,
+.smart-track-player.stp-color-00aef0-EEEEEE .spp-track-layer-2 .spp-progress-bar .spp-progress-played,
+.smart-track-player.stp-color-00aef0-EEEEEE .spp-track-layer-2 .spp-progress-bar .spp-seek-time
+{
+	background-color: #00aef0 ;
+}
+
+.smart-podcast-player.spp-color-00aef0 .spp-player-layout .spp-main-region .spp-main-view .spp-progress-bar .spp-time-elapsed ,
+.smart-podcast-player.spp-color-00aef0 .spp-player-layout .spp-main-region .spp-main-view .spp-progress-bar .spp-time-remaining ,
+.smart-podcast-player.spp-color-00aef0 .spp-player-layout .spp-main-region .spp-main-view .spp-progress-bar .spp-seek-time,
+.smart-track-player.stp-color-00aef0-EEEEEE .spp-track-layer-2 .spp-progress-bar .spp-time-elapsed,
+.smart-track-player.stp-color-00aef0-EEEEEE .spp-track-layer-2 .spp-progress-bar .spp-time-remaining,
+.smart-track-player.stp-color-00aef0-EEEEEE .spp-track-layer-2 .spp-progress-bar .spp-seek-time
+{
+	color: #FFF ;
+}
+
+.smart-podcast-player.spp-color-00aef0 .spp-show-notes a,
+.smart-podcast-player.spp-color-00aef0 .spp-truncated-show-notes a
+{
+	color: #00aef0 ;
+}
+</style>
+<link rel='stylesheet' id='askpat-player-plugin-fonts-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A300%2C400italic%2C600italic%2C700italic%2C400%2C600%2C700&#038;ver=2.3.5' type='text/css' media='all' />
+<link rel='stylesheet' id='askpat-player-plugin-styles-css'  href='http://coderscampus.com/wp-content/plugins/smart-podcast-player/assets/css/style-2.3.5.css' type='text/css' media='all' />
+<script type='text/javascript' src='http://coderscampus.com/wp-content/themes/Divi/includes/builder/scripts/frontend-builder-global-functions.js?ver=2.7.8'></script>
+<script type='text/javascript' src='http://coderscampus.com/wp-includes/js/comment-reply.min.js?ver=4.7.3'></script>
+<script type='text/javascript' src='http://coderscampus.com/wp-content/themes/Divi/includes/builder/scripts/jquery.mobile.custom.min.js?ver=2.7.8'></script>
+<script type='text/javascript' src='http://coderscampus.com/wp-content/themes/Divi/js/custom.js?ver=2.7.8'></script>
+<script type='text/javascript' src='http://coderscampus.com/wp-content/themes/Divi/js/smoothscroll.js?ver=2.7.8'></script>
+<script type='text/javascript' src='http://coderscampus.com/wp-content/themes/Divi/includes/builder/scripts/jquery.fitvids.js?ver=2.7.8'></script>
+<script type='text/javascript' src='http://coderscampus.com/wp-content/themes/Divi/includes/builder/scripts/waypoints.min.js?ver=2.7.8'></script>
+<script type='text/javascript' src='http://coderscampus.com/wp-content/themes/Divi/includes/builder/scripts/jquery.magnific-popup.js?ver=2.7.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var et_pb_custom = {"ajaxurl":"http:\/\/coderscampus.com\/wp-admin\/admin-ajax.php","images_uri":"http:\/\/coderscampus.com\/wp-content\/themes\/Divi\/images","builder_images_uri":"http:\/\/coderscampus.com\/wp-content\/themes\/Divi\/includes\/builder\/images","et_frontend_nonce":"88f7ea1238","subscription_failed":"Please, check the fields below to make sure you entered the correct information.","et_ab_log_nonce":"1c25133351","fill_message":"Please, fill in the following fields:","contact_error_message":"Please, fix the following errors:","invalid":"Invalid email","captcha":"Captcha","prev":"Prev","previous":"Previous","next":"Next","wrong_captcha":"You entered the wrong number in captcha.","is_builder_plugin_used":"","is_divi_theme_used":"1","widget_search_selector":".widget_search","is_ab_testing_active":"","page_id":"3975","unique_test_id":"","ab_bounce_rate":"5","is_cache_plugin_active":"no","is_shortcode_tracking":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://coderscampus.com/wp-content/themes/Divi/includes/builder/scripts/frontend-builder-scripts.js?ver=2.7.8'></script>
+<script type='text/javascript' src='http://coderscampus.com/wp-includes/js/wp-embed.min.js?ver=4.7.3'></script>
+<script type='text/javascript' src='http://coderscampus.com/wp-includes/js/underscore.min.js?ver=1.8.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var AP_Player = {"homeUrl":"http:\/\/coderscampus.com","baseUrl":"http:\/\/coderscampus.com\/wp-content\/plugins\/smart-podcast-player\/assets\/js\/","ajaxurl":"http:\/\/coderscampus.com\/wp-admin\/admin-ajax.php","soundcloudConsumerKey":"b38b3f6ee1cdb01e911c4d393c1f2f6e","version":"2.3.5","importantStr":"","licensed":"1","debug_output":""};
+var SmartPodcastPlayer_uid_d015 = {"errors":[],"options":{"color":"00aef0","download":"true","feed_url":"","hashtag":"","hover_timestamp":"true","html_assets":"false","marquee":"auto","social":"true","social_twitter":"true","social_facebook":"true","social_gplus":"true","social_linkedin":"false","social_stumble":"false","social_pinterest":"false","social_email":"false","speedcontrol":"true","permalink":"","show_numbering":"","style":"light","tweet_text":"","twitter_username":"","uid":"d015","url":"http:\/\/traffic.libsyn.com\/coderscampus\/coderscampus15.mp3","view":"responsive","email_portal":"none","email_outer_button_text":"Sign me up!","email_button_bg_color":"#60b86c","email_button_text_color":"#FFFFFF","email_ck_html":"","email_cta_image_url":"","email_cta_text_large":"Sign up to receive email updates","email_cta_text_small":"Enter your name and email address below and I'll send you periodic updates about the podcast.","email_cta_request_first_name":"true","email_cta_require_first_name":"false","email_cta_request_last_name":"true","email_cta_require_last_name":"false","email_cta_button_text":"Subscribe","email_cta_open":"manual","email_cta_elapsed_seconds":"60","email_cta_remaining_seconds":"60","email_use_spp_cta":"true","email_ck_form_id":"","email_mc_list_id":"","email_mc_html":"","artist":"Coders Campus Podcast","title":"EP15 - Guide to AWS - Part 1","background_type":"default","background_color":"EEEEEE","paid":"true","download_id":"d76ca5aeee89ce027bc97a8c6e2f0458"},"shortcode_options":{"url":"http:\/\/traffic.libsyn.com\/coderscampus\/coderscampus15.mp3","artist":"Coders Campus Podcast","title":"EP15 - Guide to AWS - Part 1"}};
+var AP_Player = {"homeUrl":"http:\/\/coderscampus.com","baseUrl":"http:\/\/coderscampus.com\/wp-content\/plugins\/smart-podcast-player\/assets\/js\/","ajaxurl":"http:\/\/coderscampus.com\/wp-admin\/admin-ajax.php","soundcloudConsumerKey":"b38b3f6ee1cdb01e911c4d393c1f2f6e","version":"2.3.5","importantStr":"","licensed":"1","debug_output":""};
+var SmartPodcastPlayer_uid_e9ac = {"errors":[],"options":{"color":"00aef0","download":"true","feed_url":"","hashtag":"","hover_timestamp":"true","html_assets":"false","marquee":"auto","social":"true","social_twitter":"true","social_facebook":"true","social_gplus":"true","social_linkedin":"false","social_stumble":"false","social_pinterest":"false","social_email":"false","speedcontrol":"true","permalink":"","show_numbering":"","style":"light","tweet_text":"","twitter_username":"","uid":"e9ac","url":"http:\/\/traffic.libsyn.com\/coderscampus\/coderscampus16.mp3","view":"responsive","email_portal":"none","email_outer_button_text":"Sign me up!","email_button_bg_color":"#60b86c","email_button_text_color":"#FFFFFF","email_ck_html":"","email_cta_image_url":"","email_cta_text_large":"Sign up to receive email updates","email_cta_text_small":"Enter your name and email address below and I'll send you periodic updates about the podcast.","email_cta_request_first_name":"true","email_cta_require_first_name":"false","email_cta_request_last_name":"true","email_cta_require_last_name":"false","email_cta_button_text":"Subscribe","email_cta_open":"manual","email_cta_elapsed_seconds":"60","email_cta_remaining_seconds":"60","email_use_spp_cta":"true","email_ck_form_id":"","email_mc_list_id":"","email_mc_html":"","artist":"Coders Campus Podcast","title":"EP16 - Ultimate Guide to AWS - Part 2","background_type":"default","background_color":"EEEEEE","paid":"true","download_id":"f0ab8d95792836aeb1f1361a5317a77b"},"shortcode_options":{"url":"http:\/\/traffic.libsyn.com\/coderscampus\/coderscampus16.mp3","artist":"Coders Campus Podcast","title":"EP16 - Ultimate Guide to AWS - Part 2"}};
+var AP_Player = {"homeUrl":"http:\/\/coderscampus.com","baseUrl":"http:\/\/coderscampus.com\/wp-content\/plugins\/smart-podcast-player\/assets\/js\/","ajaxurl":"http:\/\/coderscampus.com\/wp-admin\/admin-ajax.php","soundcloudConsumerKey":"b38b3f6ee1cdb01e911c4d393c1f2f6e","version":"2.3.5","importantStr":"","licensed":"1","debug_output":""};
+var SmartPodcastPlayer_uid_fbc1 = {"errors":[],"options":{"color":"00aef0","download":"true","feed_url":"","hashtag":"","hover_timestamp":"true","html_assets":"false","marquee":"auto","social":"true","social_twitter":"true","social_facebook":"true","social_gplus":"true","social_linkedin":"false","social_stumble":"false","social_pinterest":"false","social_email":"false","speedcontrol":"true","permalink":"","show_numbering":"","style":"light","tweet_text":"","twitter_username":"","uid":"fbc1","url":"http:\/\/traffic.libsyn.com\/coderscampus\/coderscampus17.mp3","view":"responsive","email_portal":"none","email_outer_button_text":"Sign me up!","email_button_bg_color":"#60b86c","email_button_text_color":"#FFFFFF","email_ck_html":"","email_cta_image_url":"","email_cta_text_large":"Sign up to receive email updates","email_cta_text_small":"Enter your name and email address below and I'll send you periodic updates about the podcast.","email_cta_request_first_name":"true","email_cta_require_first_name":"false","email_cta_request_last_name":"true","email_cta_require_last_name":"false","email_cta_button_text":"Subscribe","email_cta_open":"manual","email_cta_elapsed_seconds":"60","email_cta_remaining_seconds":"60","email_use_spp_cta":"true","email_ck_form_id":"","email_mc_list_id":"","email_mc_html":"","artist":"Coders Campus Podcast","title":"EP17 - Deploying your code to AWS","background_type":"default","background_color":"EEEEEE","paid":"true","download_id":"63dadfc6a7f2524da7dd8cc2d206cab5"},"shortcode_options":{"url":"http:\/\/traffic.libsyn.com\/coderscampus\/coderscampus17.mp3","artist":"Coders Campus Podcast","title":"EP17 - Deploying your code to AWS"}};
+var AP_Player = {"homeUrl":"http:\/\/coderscampus.com","baseUrl":"http:\/\/coderscampus.com\/wp-content\/plugins\/smart-podcast-player\/assets\/js\/","ajaxurl":"http:\/\/coderscampus.com\/wp-admin\/admin-ajax.php","soundcloudConsumerKey":"b38b3f6ee1cdb01e911c4d393c1f2f6e","version":"2.3.5","importantStr":"","licensed":"1","debug_output":""};
+var SmartPodcastPlayer_uid_0fcf = {"errors":[],"options":{"color":"00aef0","download":"true","feed_url":"","hashtag":"","hover_timestamp":"true","html_assets":"false","marquee":"auto","social":"true","social_twitter":"true","social_facebook":"true","social_gplus":"true","social_linkedin":"false","social_stumble":"false","social_pinterest":"false","social_email":"false","speedcontrol":"true","permalink":"","show_numbering":"","style":"light","tweet_text":"","twitter_username":"","uid":"0fcf","url":"http:\/\/traffic.libsyn.com\/coderscampus\/coderscampus18.mp3","view":"responsive","email_portal":"none","email_outer_button_text":"Sign me up!","email_button_bg_color":"#60b86c","email_button_text_color":"#FFFFFF","email_ck_html":"","email_cta_image_url":"","email_cta_text_large":"Sign up to receive email updates","email_cta_text_small":"Enter your name and email address below and I'll send you periodic updates about the podcast.","email_cta_request_first_name":"true","email_cta_require_first_name":"false","email_cta_request_last_name":"true","email_cta_require_last_name":"false","email_cta_button_text":"Subscribe","email_cta_open":"manual","email_cta_elapsed_seconds":"60","email_cta_remaining_seconds":"60","email_use_spp_cta":"true","email_ck_form_id":"","email_mc_list_id":"","email_mc_html":"","artist":"Coders Campus Podcast","title":"EP18 - Create and configure a Database in AWS","background_type":"default","background_color":"EEEEEE","paid":"true","download_id":"8b63e5540cf215398c73606e8b8cb272"},"shortcode_options":{"url":"http:\/\/traffic.libsyn.com\/coderscampus\/coderscampus18.mp3","artist":"Coders Campus Podcast","title":"EP18 - Create and configure a Database in AWS"}};
+var AP_Player = {"homeUrl":"http:\/\/coderscampus.com","baseUrl":"http:\/\/coderscampus.com\/wp-content\/plugins\/smart-podcast-player\/assets\/js\/","ajaxurl":"http:\/\/coderscampus.com\/wp-admin\/admin-ajax.php","soundcloudConsumerKey":"b38b3f6ee1cdb01e911c4d393c1f2f6e","version":"2.3.5","importantStr":"","licensed":"1","debug_output":""};
+var SmartPodcastPlayer_uid_2343 = {"errors":[],"options":{"color":"00aef0","download":"true","feed_url":"","hashtag":"","hover_timestamp":"true","html_assets":"false","marquee":"auto","social":"true","social_twitter":"true","social_facebook":"true","social_gplus":"true","social_linkedin":"false","social_stumble":"false","social_pinterest":"false","social_email":"false","speedcontrol":"true","permalink":"","show_numbering":"","style":"light","tweet_text":"","twitter_username":"","uid":"2343","url":"http:\/\/traffic.libsyn.com\/coderscampus\/coderscampus19.mp3","view":"responsive","email_portal":"none","email_outer_button_text":"Sign me up!","email_button_bg_color":"#60b86c","email_button_text_color":"#FFFFFF","email_ck_html":"","email_cta_image_url":"","email_cta_text_large":"Sign up to receive email updates","email_cta_text_small":"Enter your name and email address below and I'll send you periodic updates about the podcast.","email_cta_request_first_name":"true","email_cta_require_first_name":"false","email_cta_request_last_name":"true","email_cta_require_last_name":"false","email_cta_button_text":"Subscribe","email_cta_open":"manual","email_cta_elapsed_seconds":"60","email_cta_remaining_seconds":"60","email_use_spp_cta":"true","email_ck_form_id":"","email_mc_list_id":"","email_mc_html":"","artist":"Coders Campus Podcast","title":"EP19 - Pointing a Domain to Your New Cloud Application","background_type":"default","background_color":"EEEEEE","paid":"true","download_id":"ea48268c385d63cbb1510c49845e581f"},"shortcode_options":{"url":"http:\/\/traffic.libsyn.com\/coderscampus\/coderscampus19.mp3","artist":"Coders Campus Podcast","title":"EP19 - Pointing a Domain to Your New Cloud Application"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://coderscampus.com/wp-content/plugins/smart-podcast-player/assets/js/main-2.3.5.min.js'></script>
+</body>
+</html>
